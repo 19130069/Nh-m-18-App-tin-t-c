@@ -8,13 +8,18 @@ import { HeaderComponent } from './component/header/header.component';
 import { BodyComponent } from './component/body/body.component';
 import { BodyTrangChuComponent } from './component/body/body-trang-chu/body-trang-chu.component';
 
+import { BodyChiTietComponent } from './component/body/body-chi-tiet/body-chi-tiet.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     ComponentComponent,
     HeaderComponent,
     BodyComponent,
-    BodyTrangChuComponent
+
+    BodyTrangChuComponent,
+    BodyChiTietComponent
+
   ],
   imports: [
     BrowserModule,
