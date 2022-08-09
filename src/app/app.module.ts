@@ -7,6 +7,7 @@ import { ComponentComponent } from './component/component.component';
 import { HeaderComponent } from './component/header/header.component';
 import { BodyComponent } from './component/body/body.component';
 import { BodyTrangChuComponent } from './component/body/body-trang-chu/body-trang-chu.component';
+
 import { BodyChiTietComponent } from './component/body/body-chi-tiet/body-chi-tiet.component';
 
 @NgModule({
@@ -15,8 +16,10 @@ import { BodyChiTietComponent } from './component/body/body-chi-tiet/body-chi-ti
     ComponentComponent,
     HeaderComponent,
     BodyComponent,
+
     BodyTrangChuComponent,
     BodyChiTietComponent
+
   ],
   imports: [
     BrowserModule,
