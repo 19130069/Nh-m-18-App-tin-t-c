@@ -23,8 +23,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/stylecss/main.min-1.1.1.css"
+              "src/styles.css"
+            
+              
+          
             ],
             "scripts": []
           },

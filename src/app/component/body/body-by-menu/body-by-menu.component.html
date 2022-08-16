@@ -1,0 +1,195 @@
+
+
+ <!DOCTYPE html>
+ <html lang="vi">
+ <head>
+ <title>Báo Giáo dục và Thời đại Online</title>
+ <link rel="stylesheet" href="https://static.giaoducthoidai.vn/v1/web/styles/css/main.min-1.1.1.css">
+ </head>
+ <body >
+  <app-header></app-header>
+ <div class="wrapper-page  cate-page "> 
+ <div class="site-body"> 
+  <div class="container">
+ 
+ 
+  <div class="hot-events">
+ <a class="title" href="https://giaoducthoidai.vn/dong-su-kien.html" title="Sự kiện">Sự kiện</a>
+ <div class="slide-wrapper">
+ </div>
+ </div>
+ 
+ <!-- để lick vào menu nào thì hiển thị tên menu đó -->
+  <!-- <div class="cate-breadcrumb">
+   <h1>
+ <a class="cate-parent" href="https://giaoducthoidai.vn/giao-duc/" title="Giáo dục ">Giáo dục </a>
+ </h1>
+
+ </div> -->
+ <div class="col-wrapper">
+ <div class="main-col">
+ <div class="item-primary content-col">
+ 
+ 
+ 
+ <div class="wrapper" data-source="zone-highlight-17">
+ <article class="story" *ngFor="let item of dataThoiSu;let h =index">
+ 
+ 
+ <figure class="story__thumb" *ngIf="h<1">
+ 
+ <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+  <img src="{{item.image}}" alt="">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h2 class="story__heading" data-tracking="602711"*ngIf="h<1">
+ <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+  {{item.title}}
+  
+ </a>
+ </h2> 
+ </article>
+ 
+ </div>
+ 
+  <div class="many-pack content-list" data-source="zone-timeline-17">
+ 
+   <article class="story" data-id="603428"*ngFor="let item of dataThoiSu;let h =index">
+ 
+ 
+ <figure class="story__thumb" *ngIf="(h>0)&&(h<5)">
+ 
+ <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+  <img class="lazyload" src="{{item.image}}"  alt="{{item.title}}">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h3 class="story__heading" data-tracking="603428"*ngIf="(h>0)&&(h<5)">
+ <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+  {{item.title}}
+ </a>
+ </h3> 
+ 
+ 
+ <time class="story__time" datetime="2022-08-07T11:05:07+0700" data-time="1659845107"*ngIf="(h>0)&&(h<5)">
+  <span class="icon icon-clock"></span>
+  {{item.time}}
+ </time>
+ 
+ 
+  <div class="story__summary story__shorten"*ngIf="(h>0)&&(h<5)">
+    {{item.description}}
+ </div>
+ </article>
+ </div>
+
+ <!-- <button type="button" class="load-more control__loadmore" data-page="1"
+ data-zone="17" data-type="zone">Xem thêm
+ </button> -->
+ </div>
+ <div class="item-secondary sidebar-middle">
+ 
+ 
+ <div class="header-bg">
+ <div class="box-heading">
+ <h3 class="wrap-heading">
+ <span class="heading">Tin tiêu điểm</span>
+ </h3>
+ </div>
+ <div class="box-content" data-source="zone-box-focus-17">
+    <article class="story"*ngFor="let item of dataThoiSu;let h =index">
+ 
+ 
+        <figure class="story__thumb"*ngIf="(h>4)&&(h<6)">
+        
+        <a (click)="view2(item.title,item.content,item.day)">
+         <img class="lazyload" src="{{item.image}}" data-src="" alt="{{item.title}}">
+        
+        
+        </a>
+        </figure>
+        
+        
+         <h2 class="story__heading" data-tracking="602548"*ngIf="(h>4)&&(h<6)">
+        <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+          {{item.title}}
+         <i class="icon icon-img"></i>
+        </a>
+        </h2> 
+        </article>
+  </div>
+ </div>
+ 
+ <div class="header-bg">
+ <div class="box-heading">
+ <h3 class="wrap-heading">
+ <span class="heading">Tin nổi bật</span>
+ </h3>
+ </div>
+ <div class="box-content" data-source="zone-box-highlight-17">
+  <article class="story"*ngFor="let item of dataThoiSu;let h =index">
+ 
+ 
+ <figure class="story__thumb"*ngIf="h>6">
+ 
+ <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+  <img class="lazyload" src="{{item.image}}" alt="{{item.title}}">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h2 class="story__heading" data-tracking="602548"*ngIf="h>6">
+ <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+  {{item.title}}
+  <i class="icon icon-img"></i>
+ </a>
+ </h2> 
+ </article>
+  
+  
+  </div>
+ </div>
+ </div>
+ </div>
+ <div class="sub-col sidebar-right">
+ 
+ </div>
+ </div>
+ 
+  <div class="cate-list">
+ 
+    <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+    [routerLink]="['/bodybymenu/Giáo dục']" title="Giáo dục"(click)=" setActive('Giáo dục')" >Giáo dục </a>
+ 
+    <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+    [routerLink]="['/bodybymenu/Thời sự']" title="Thời sự"(click)=" setActive('Thời sự')">Thời sự</a>
+    
+    <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+    [routerLink]="['/bodybymenu/Trồng người']"(click)=" setActive('Trồng người')"title="Trồng người">Trồng người</a>
+    
+    <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+    [routerLink]="['/bodybymenu/Bốn phương']"(click)=" setActive('Bốn phương')" title="Bốn phương">Bốn phương</a>
+    <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+    [routerLink]="['/bodybymenu/Văn hóa']" (click)=" setActive('Văn hóa')" title="Văn hóa">Văn hóa</a>
+    <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+    [routerLink]="['/bodybymenu/Tinh hoa']" (click)=" setActive('Tinh hoa')"title="Tinh hoa">Tinh hoa</a>
+  </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <app-footer></app-footer>
+  
+ </div>
+ </body>
+ </html>

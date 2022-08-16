@@ -3,14 +3,12 @@
  <!DOCTYPE html>
  <html lang="vi">
  <head>
- 
- 
-
  <title>Báo Giáo dục và Thời đại Online</title>
  <link rel="stylesheet" href="body-trang-chu.component.css">
  <link rel="stylesheet" href="https://static.giaoducthoidai.vn/v1/web/styles/css/main.min-1.1.1.css">
  </head>
  <body >
+  <app-header></app-header>
  <div class="wrapper-page  section-homepage "> 
  
  <div class="site-body"> 
@@ -25,35 +23,35 @@
  <div class="abf-homepage">
  <div class="top-news">
  <div class="rank-1" data-source="home-highlight">
- <article class="story">
+ <article class="story" *ngFor="let item of dataGiaoDuc;let h=index">
  
  
- <figure class="story__thumb">
+ <figure class="story__thumb" *ngIf="h<1">
  
- <a href="https://giaoducthoidai.vn/khanh-thanh-nha-khan-quang-do-do-bao-giao-duc-va-thoi-dai-ho-tro-post603531.html" title="Khánh thành nhà &apos;Khăn quàng đỏ&apos; do Báo Giáo dục và Thời đại hỗ trợ">
-  <img src="https://photo-cms-giaoducthoidai.zadn.vn/600x338/Uploaded/2022/djsmm/2022_08_07/nha-khan-quang-do-2-9982.jpg" alt="Đại diện Tỉnh đoàn Điện Biên, Báo Giáo dục &amp; Thời đại cùng các đơn vị tài trợ khánh thành nhà Khăn quàng đỏ hỗ trợ em Lường Thị Tuyết.">
+ <a title="{{item.title}}" (click)="view2(item.title,item.content,item.day)">
+  <img src="{{item.image}}" alt="{{item.title}}">
  
  
  </a>
  </figure>
  
  
-  <h2 class="story__heading" data-tracking="603531">
- <a class="cms-link" href="https://giaoducthoidai.vn/khanh-thanh-nha-khan-quang-do-do-bao-giao-duc-va-thoi-dai-ho-tro-post603531.html" title="Khánh thành nhà &apos;Khăn quàng đỏ&apos; do Báo Giáo dục và Thời đại hỗ trợ">
- Khánh thành nhà &apos;Khăn quàng đỏ&apos; do Báo Giáo dục và Thời đại hỗ trợ
+  <h2 class="story__heading" data-tracking="603531" *ngIf="h<1">
+ <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+   {{item.title}}
   <i class="icon icon-img"></i>
  </a>
  </h2> 
  
  
- <time class="story__time" datetime="2022-08-07T19:29:38+0700" data-time="1659875378">
+ <time class="story__time" datetime="2022-08-07T19:29:38+0700" data-time="1659875378" *ngIf="h<1">
  
- 07/08/2022 19:29
+   {{item.time}}
  </time>
  
  
-  <div class="story__summary">
- <p>GD&amp;TĐ -&nbsp;Sau thời gian thi công, ngôi nhà "Khăn quàng đỏ" do Báo Giáo dục và Thời đại hỗ trợ đã chính thức được bàn giao cho em Lường Thị Tuyết (Điện Biên).</p>
+  <div class="story__summary" *ngIf="h<1">
+ <p>{{item.description}}</p>
  </div>
  </article>
  </div>
@@ -62,85 +60,22 @@
   <div class="blog-list">
  <div class="box-content" data-source="home-highlight">
  
- <article class="story">
+ <article class="story" *ngFor="let item of dataThoiSu; let h=index">
  
  
- <figure class="story__thumb">
+ <figure class="story__thumb" *ngIf="h<6">
  
- <a href="https://giaoducthoidai.vn/chon-mon-lop-10-nhu-the-nao-cho-hop-ly-post603526.html" title="Chọn môn lớp 10 như thế nào cho hợp lý?">
-  <img src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/kpcgmvvb/2022_07_07/thay-thi-3833.jpg" alt="Thầy Nguyễn Quang Thi cùng học trò của mình. Ảnh NVCC.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h2 class="story__heading" data-tracking="603526">
- <a class="cms-link" href="https://giaoducthoidai.vn/chon-mon-lop-10-nhu-the-nao-cho-hop-ly-post603526.html" title="Chọn môn lớp 10 như thế nào cho hợp lý?">
- Chọn môn lớp 10 như thế nào cho hợp lý?
-  
- </a>
- </h2> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/nha-truong-chu-dong-tu-van-sach-giao-khoa-de-phu-huynh-chon-dung-co-du-post603428.html" title="Nhà trường chủ động tư vấn sách giáo khoa để phụ huynh chọn đúng, có đủ">
-  <img src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/tmgtjq/2022_08_06/cung-ung-sgk-lop-10-anh-1-9386.jpg" alt="Học sinh tìm mua SGK lớp 10 mới tại TP Vinh, Nghệ An. ">
+ <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+  <img src="{{item.image}}" alt="{{item.title}}">
  
  
  </a>
  </figure>
  
  
-  <h2 class="story__heading" data-tracking="603428">
- <a class="cms-link" href="https://giaoducthoidai.vn/nha-truong-chu-dong-tu-van-sach-giao-khoa-de-phu-huynh-chon-dung-co-du-post603428.html" title="Nhà trường chủ động tư vấn sách giáo khoa để phụ huynh chọn đúng, có đủ">
- Nhà trường chủ động tư vấn sách giáo khoa để phụ huynh chọn đúng, có đủ
-  
- </a>
- </h2> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/it-nhat-121-nguoi-bi-thuong-17-nhan-vien-cuu-hoa-mat-tich-trong-vu-chay-kho-dau-o-cuba-post603496.html" title="Ít nhất 121 người bị thương, 17 nhân viên cứu hỏa mất tích trong vụ cháy kho dầu ở Cuba ">
-  <img src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/djshm/2022_08_07/cuba-chay-kho-du-tru-dau-998.png" alt="Cơ sở lưu trữ dầu ở Cuba cháy sau khi bị sét đánh.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h2 class="story__heading" data-tracking="603496">
- <a class="cms-link" href="https://giaoducthoidai.vn/it-nhat-121-nguoi-bi-thuong-17-nhan-vien-cuu-hoa-mat-tich-trong-vu-chay-kho-dau-o-cuba-post603496.html" title="Ít nhất 121 người bị thương, 17 nhân viên cứu hỏa mất tích trong vụ cháy kho dầu ở Cuba ">
- Ít nhất 121 người bị thương, 17 nhân viên cứu hỏa mất tích trong vụ cháy kho dầu ở Cuba 
-  <!-- <i class="icon icon-video"></i> -->
- </a>
- </h2> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/than-trong-voi-bay-diem-san-thap-post603414.html" title="Thận trọng với &apos;bẫy điểm sàn&apos; thấp">
-  <img src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/tmgtjq/2022_08_06/anh-1-171.jpg" alt="Học sinh tại ngày hội tư vấn tuyển sinh 2022. Ảnh: INT">
- 
- 
- </a>
- </figure>
- 
- 
-  <h2 class="story__heading" data-tracking="603414">
- <a class="cms-link" href="https://giaoducthoidai.vn/than-trong-voi-bay-diem-san-thap-post603414.html" title="Thận trọng với &apos;bẫy điểm sàn&apos; thấp">
- Thận trọng với &apos;bẫy điểm sàn&apos; thấp
+  <h2 class="story__heading" data-tracking="603526" *ngIf="h<6">
+ <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+   {{item.title}}
   
  </a>
  </h2> 
@@ -159,55 +94,57 @@
  
  <div class="box-heading">
   <h2 class="wrap-heading">
- <a class="heading" href="https://giaoducthoidai.vn/chu-de/toan-canh-su-kien-133.html" title="Toàn cảnh - Sự kiện">
-  Toàn cảnh - Sự kiện
+ <a class="heading" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+ [routerLink]="['/bodybymenu/Thời sự']" (click)=" setActive('Thời sự')" title="Thời sự">
+  Thời sự
  </a>
  </h2>
  </div> 
  
  <div class="box-content">
  <div class="rank-1" data-source="home-hot">
- <article class="story">
+ <article class="story" *ngFor="let item of dataThoiSu; let h=index">
  
  
- <figure class="story__thumb">
+ <figure class="story__thumb" *ngIf="h<1">
  
- <a href="https://giaoducthoidai.vn/ngay-7-8-them-1-381-ca-covid-19-moi-gan-8-600-f0-khoi-benh-post603539.html" title="Ngày 7/8: Thêm 1.381 ca Covid-19 mới, gần 8.600 F0 khỏi bệnh">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/550x367/Uploaded/2022/pqmvxpiu/2022_08_07/binh-duong-1-3439.jpeg" alt="Ảnh minh họa.">
+ <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+  <img class="lazyload" src="{{item.image}}" alt="Ảnh minh họa.">
  
  
  </a>
  </figure>
  
  
-  <h2 class="story__heading" data-tracking="603539">
- <a class="cms-link" href="https://giaoducthoidai.vn/ngay-7-8-them-1-381-ca-covid-19-moi-gan-8-600-f0-khoi-benh-post603539.html" title="Ngày 7/8: Thêm 1.381 ca Covid-19 mới, gần 8.600 F0 khỏi bệnh">
- Ngày 7/8: Thêm 1.381 ca Covid-19 mới, gần 8.600 F0 khỏi bệnh
+  <h2 class="story__heading" data-tracking="603539" *ngIf="h<1">
+ <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+   {{item.title}}
   
  </a>
  </h2> 
  
  
- <time class="story__time" datetime="2022-08-07T19:25:18+0700" data-time="1659875118">
+ <time class="story__time" datetime="2022-08-07T19:25:18+0700" data-time="1659875118" *ngIf="h<1">
  
- 07/08/2022 19:25
+   {{item.time}}
  </time>
  
  
-  <div class="story__summary">
- GD&amp;TĐ - Bản tin phòng chống dịch Covid-19 ngày 7/8 của Bộ Y tế cho biết có 1.381 ca Covid-19 mới, giảm hơn 200 ca so với ngày trước đó; Trong ngày gần 8.600 bệnh nhân khỏi, tiếp tục không có F0 tử vong.
+  <div class="story__summary" *ngIf="h<1">
+   {{item.description}}
  </div>
  </article>
  </div>
+
   <div class="rank-2" data-source="home-hot">
- 
- <article class="story">
+  <div *ngFor="let item of dataThoiSu; let h=index">
+ <article class="story" *ngIf="h>5">
  
  
  <figure class="story__thumb">
  
- <a href="https://giaoducthoidai.vn/xuat-hien-thi-sinh-co-giong-hat-giong-100-nghe-si-uu-tu-vu-linh-post603529.html" title="Xuất hiện thí sinh có giọng hát &quot;giống 100%&apos; nghệ sĩ ưu tú Vũ Linh ">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/70x40/Uploaded/2022/znaebz/2022_08_07/4-ts-3-4775.jpg" alt="Xuất hiện thí sinh có giọng hát &quot;giống 100%&apos; nghệ sĩ ưu tú Vũ Linh ">
+ <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+  <img class="lazyload" src="{{item.image}}" alt="{{item.title}}">
  
  
  </a>
@@ -215,8 +152,8 @@
  
  
   <h2 class="story__heading" data-tracking="603529">
- <a class="cms-link" href="https://giaoducthoidai.vn/xuat-hien-thi-sinh-co-giong-hat-giong-100-nghe-si-uu-tu-vu-linh-post603529.html" title="Xuất hiện thí sinh có giọng hát &quot;giống 100%&apos; nghệ sĩ ưu tú Vũ Linh ">
- Xuất hiện thí sinh có giọng hát &quot;giống 100%&apos; nghệ sĩ ưu tú Vũ Linh 
+ <a class="cms-link"(click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+   {{item.title}}
   <i class="icon icon-img"></i>
  </a>
  </h2> 
@@ -224,117 +161,10 @@
  
  <time class="story__time" datetime="2022-08-07T19:44:45+0700" data-time="1659876285">
  
- 07/08/2022 19:44
+   {{item.time}}
  </time>
  </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/bao-han-quoc-tuyen-viet-nam-co-co-hoi-du-world-cup-post603480.html" title="Báo Hàn Quốc: ‘Tuyển Việt Nam có cơ hội dự World Cup’">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/70x40/Uploaded/2022/ygtmrk/2022_08_06/vff-8761-2440.jpg" alt="Tuyển Việt Nam được kỳ vọng sẽ có vé dự VCK World Cup 2026.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h2 class="story__heading" data-tracking="603480">
- <a class="cms-link" href="https://giaoducthoidai.vn/bao-han-quoc-tuyen-viet-nam-co-co-hoi-du-world-cup-post603480.html" title="Báo Hàn Quốc: ‘Tuyển Việt Nam có cơ hội dự World Cup’">
- Báo Hàn Quốc: ‘Tuyển Việt Nam có cơ hội dự World Cup’
-  
- </a>
- </h2> 
- 
- 
- <time class="story__time" datetime="2022-08-07T15:34:42+0700" data-time="1659861282">
- 
- 07/08/2022 15:34
- </time>
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/video-loat-vu-khi-phuong-tay-tai-ukraine-ve-tay-quan-doi-nga-post603533.html" title="Video: Loạt vũ khí phương Tây tại Ukraine về tay quân đội Nga">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/70x40/Uploaded/2022/djshm/2022_08_07/nga-thu-giu-vu-khi-phuong-tay-4332.png" alt="Video: Loạt vũ khí phương Tây tại Ukraine về tay quân đội Nga">
- 
- 
- </a>
- </figure>
- 
- 
-  <h2 class="story__heading" data-tracking="603533">
- <a class="cms-link" href="https://giaoducthoidai.vn/video-loat-vu-khi-phuong-tay-tai-ukraine-ve-tay-quan-doi-nga-post603533.html" title="Video: Loạt vũ khí phương Tây tại Ukraine về tay quân đội Nga">
- Video: Loạt vũ khí phương Tây tại Ukraine về tay quân đội Nga
-  <!-- <i class="icon icon-video"></i> -->
- </a>
- </h2> 
- 
- 
- <time class="story__time" datetime="2022-08-07T16:44:07+0700" data-time="1659865447">
- 
- 07/08/2022 16:44
- </time>
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/sau-dam-cuoi-minh-hang-duoc-chong-dai-gia-cung-chieu-het-muc-post603504.html" title="Sau đám cưới, Minh Hằng được chồng đại gia cưng chiều hết mực ">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/70x40/Uploaded/2022/znaebz/2022_08_07/minh-hang-1-1355-1655557839-2003.jpg" alt="Sau đám cưới, Minh Hằng được chồng đại gia cưng chiều hết mực ">
- 
- 
- </a>
- </figure>
- 
- 
-  <h2 class="story__heading" data-tracking="603504">
- <a class="cms-link" href="https://giaoducthoidai.vn/sau-dam-cuoi-minh-hang-duoc-chong-dai-gia-cung-chieu-het-muc-post603504.html" title="Sau đám cưới, Minh Hằng được chồng đại gia cưng chiều hết mực ">
- Sau đám cưới, Minh Hằng được chồng đại gia cưng chiều hết mực 
-  
- </a>
- </h2> 
- 
- 
- <time class="story__time" datetime="2022-08-07T15:32:47+0700" data-time="1659861167">
- 
- 07/08/2022 15:32
- </time>
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/cbs-khoang-70-vien-tro-quan-su-cua-phuong-tay-cho-ukraine-khong-den-dich-post603509.html" title="CBS: Khoảng 70% viện trợ quân sự của phương Tây cho Ukraine không đến đích ">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/70x40/Uploaded/2022/djshm/2022_08_07/70-phan-tram-vu-khi-phuong-tay-cho-ukraine-5985.png" alt="Vũ khí phương Tây chuyển cho Ukraine.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h2 class="story__heading" data-tracking="603509">
- <a class="cms-link" href="https://giaoducthoidai.vn/cbs-khoang-70-vien-tro-quan-su-cua-phuong-tay-cho-ukraine-khong-den-dich-post603509.html" title="CBS: Khoảng 70% viện trợ quân sự của phương Tây cho Ukraine không đến đích ">
- CBS: Khoảng 70% viện trợ quân sự của phương Tây cho Ukraine không đến đích 
-  
- </a>
- </h2> 
- 
- 
- <time class="story__time" datetime="2022-08-07T14:20:38+0700" data-time="1659856838">
- 
- 07/08/2022 14:20
- </time>
- </article>
+</div>
   </div>
  </div>
  </div>
@@ -348,82 +178,18 @@
  </h3>
  </div>
  <div class="box-content" data-source="latest-news">
-  <article class="story">
+   <div *ngFor="let item of dataTrangChu;let h=index">
+  <article class="story"*ngIf="h<5">
  
  
   <h2 class="story__heading" data-tracking="603549">
- <a class="cms-link" href="https://giaoducthoidai.vn/da-nang-chay-lon-o-cua-hang-ban-do-me-va-be-post603549.html" title="Đà Nẵng: Cháy lớn ở cửa hàng bán đồ mẹ và bé">
- Đà Nẵng: Cháy lớn ở cửa hàng bán đồ mẹ và bé
+ <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+   {{item.title}}
   
  </a>
  </h2> 
  </article>
-  <article class="story">
- 
- 
-  <h2 class="story__heading" data-tracking="603546">
- <a class="cms-link" href="https://giaoducthoidai.vn/tu-nay-den-2030-tiep-tuc-tim-kiem-quy-tap-khoang-15-000-hai-cot-liet-si-post603546.html" title="Từ nay đến 2030 tiếp tục tìm kiếm, quy tập khoảng 15.000 hài cốt liệt sĩ">
- Từ nay đến 2030 tiếp tục tìm kiếm, quy tập khoảng 15.000 hài cốt liệt sĩ
-  
- </a>
- </h2> 
- </article>
-  <article class="story">
- 
- 
-  <h2 class="story__heading" data-tracking="603551">
- <a class="cms-link" href="https://giaoducthoidai.vn/ha-noi-6-thang-dau-nam-so-nguoi-nhiem-hiv-giam-so-voi-cung-ky-post603551.html" title="Hà Nội: 6 tháng đầu năm số người nhiễm HIV giảm so với cùng kỳ">
- Hà Nội: 6 tháng đầu năm số người nhiễm HIV giảm so với cùng kỳ
-  
- </a>
- </h2> 
- </article>
-  <article class="story">
- 
- 
-  <h2 class="story__heading" data-tracking="603544">
- <a class="cms-link" href="https://giaoducthoidai.vn/danh-bai-malaysia-u19-viet-nam-vao-chung-ket-u19-quoc-te-post603544.html" title="Đánh bại Malaysia, U19 Việt Nam vào chung kết U19 quốc tế">
- Đánh bại Malaysia, U19 Việt Nam vào chung kết U19 quốc tế
-  
- </a>
- </h2> 
- </article>
-  <article class="story">
- 
- 
-  <h2 class="story__heading" data-tracking="603543">
- <a class="cms-link" href="https://giaoducthoidai.vn/hong-dang-ho-hoai-anh-duoc-tra-ho-chieu-co-the-duoc-ve-nuoc-post603543.html" title="Hồng Đăng, Hồ Hoài Anh được trả hộ chiếu, có thể được về nước">
- Hồng Đăng, Hồ Hoài Anh được trả hộ chiếu, có thể được về nước
-  
- </a>
- </h2> 
- </article>
-  </div>
- </div>
- 
- <div class="box-think">
- 
- 
- <div class="box-heading">
-  <h2 class="wrap-heading"><a class="heading" href="https://giaoducthoidai.vn/suy-ngam/" title="Suy ngẫm">Suy ngẫm</a></h2>
- </div> 
- 
- <div class="box-content" data-source="zone-box-21">
-  <article class="story">
- 
- 
-  <h3 class="story__heading" data-tracking="603397">
- <a class="cms-link" href="https://giaoducthoidai.vn/thay-doi-truyen-thong-post603397.html" title="Thay đổi &apos;truyền thống&apos;">
- Thay đổi &apos;truyền thống&apos;
- 
- </a>
- </h3> 
- 
- 
-  <div class="story__summary">
- GD&amp;TĐ - Gần đây, ở các đô thị lớn như Hà Nội và TPHCM, chuyện liên quan đến phương tiện giao thông công cộng lại nóng lên khi xuất hiện xe bus điện của một tập đoàn tên tuổi.
- </div>
- </article>
+</div>
   </div>
  </div>
  </div>
@@ -435,7 +201,8 @@
  
  <div class="box-heading">
  <h3 class="wrap-heading">
- <a class="heading" href="https://giaoducthoidai.vn/giao-duc/" title="Giáo dục ">
+ <a class="heading" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+ [routerLink]="['/bodybymenu/Giáo dục']" (click)=" setActive('Giáo dục')" title="Giáo dục ">
  Giáo dục 
  </a>
  </h3>
@@ -443,119 +210,58 @@
  
  <div class="box-content">
  <div class="item-primary" data-source="zone-box-home-17">
- <article class="story">
+ <article class="story" *ngFor="let item of dataGiaoDuc;let h=index">
  
  
- <figure class="story__thumb">
+ <figure class="story__thumb"*ngIf="h<1">
  
- <a href="https://giaoducthoidai.vn/trinh-do-giao-vien-la-thach-thuc-lon-khi-trien-khai-giao-duc-stem-post602711.html" title="Trình độ giáo viên là thách thức lớn khi triển khai giáo dục STEM">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/600x338/Uploaded/2022/tmgtjq/2022_07_30/stem-tieu-hoc-1-678.jpg" alt="Giáo dục STEM giúp học sinh tiểu học phát triển phẩm chất và năng lực. Ảnh minh họa">
+ <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+  <img class="lazyload" src="{{item.image}}" alt="{{item.title}}">
  
  
  </a>
  </figure>
  
  
-  <h3 class="story__heading" data-tracking="602711">
- <a class="cms-link" href="https://giaoducthoidai.vn/trinh-do-giao-vien-la-thach-thuc-lon-khi-trien-khai-giao-duc-stem-post602711.html" title="Trình độ giáo viên là thách thức lớn khi triển khai giáo dục STEM">
- Trình độ giáo viên là thách thức lớn khi triển khai giáo dục STEM
+  <h3 class="story__heading" data-tracking="602711"*ngIf="h<1">
+ <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+   {{item.title}}
   
  </a>
  </h3> 
  
  
- <time class="story__time" datetime="2022-08-07T16:30:22+0700" data-time="1659864622">
+ <time class="story__time" datetime="2022-08-07T16:30:22+0700" data-time="1659864622"*ngIf="h<1">
  
- 07/08/2022 16:30
+   {{item.time}}
  </time>
  
  
-  <div class="story__summary story__shorten">
- GD&amp;TĐ -&nbsp;Giáo dục STEM có vai trò quan trọng trong thực hiện Chương trình giáo dục phổ thông 2018 ở cấp tiểu học, góp phần phát triển các phẩm chất, năng lực chung và năng lực đặc thù cho học sinh. Tuy nhiên, để triển khai hiệu quả đòi hỏi có sự đầu tư, chuẩn bị kỹ càng để những khó khăn không trở thành rào cản.
+  <div class="story__summary story__shorten"*ngIf="h<1">
+   {{item.description}}
  </div>
  </article>
  </div>
+
+
   <div class="item-secondary" data-source="zone-box-home-17">
  
- <article class="story">
+ <article class="story" *ngFor="let item of dataGiaoDuc;let h=index">
  
  
- <figure class="story__thumb">
+ <figure class="story__thumb" *ngIf="(h>1)&&(h<6)">
  
- <a href="https://giaoducthoidai.vn/nha-truong-chu-dong-tu-van-sach-giao-khoa-de-phu-huynh-chon-dung-co-du-post603428.html" title="Nhà trường chủ động tư vấn sách giáo khoa để phụ huynh chọn đúng, có đủ">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/tmgtjq/2022_08_06/cung-ung-sgk-lop-10-anh-1-9386.jpg" alt="Học sinh tìm mua SGK lớp 10 mới tại TP Vinh, Nghệ An. ">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603428">
- <a class="cms-link" href="https://giaoducthoidai.vn/nha-truong-chu-dong-tu-van-sach-giao-khoa-de-phu-huynh-chon-dung-co-du-post603428.html" title="Nhà trường chủ động tư vấn sách giáo khoa để phụ huynh chọn đúng, có đủ">
- Nhà trường chủ động tư vấn sách giáo khoa để phụ huynh chọn đúng, có đủ
-  
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/than-trong-voi-bay-diem-san-thap-post603414.html" title="Thận trọng với &apos;bẫy điểm sàn&apos; thấp">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/tmgtjq/2022_08_06/anh-1-171.jpg" alt="Học sinh tại ngày hội tư vấn tuyển sinh 2022. Ảnh: INT">
+ <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+  <img class="lazyload" src="{{item.image}}" alt="{{item.title}}">
  
  
  </a>
  </figure>
  
  
-  <h3 class="story__heading" data-tracking="603414">
- <a class="cms-link" href="https://giaoducthoidai.vn/than-trong-voi-bay-diem-san-thap-post603414.html" title="Thận trọng với &apos;bẫy điểm sàn&apos; thấp">
- Thận trọng với &apos;bẫy điểm sàn&apos; thấp
-  
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/hoc-vien-phu-nu-viet-nam-cong-bo-diem-chuan-va-diem-san-post603469.html" title="Học viện Phụ nữ Việt Nam công bố điểm chuẩn và ‘điểm sàn’">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/joktty/2022_08_06/hvpn0-jpg1-6864.jpg" alt="Học viện Phụ nữ Việt Nam tư vấn tuyển sinh cho thí sinh.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603469">
- <a class="cms-link" href="https://giaoducthoidai.vn/hoc-vien-phu-nu-viet-nam-cong-bo-diem-chuan-va-diem-san-post603469.html" title="Học viện Phụ nữ Việt Nam công bố điểm chuẩn và ‘điểm sàn’">
- Học viện Phụ nữ Việt Nam công bố điểm chuẩn và ‘điểm sàn’
-  <i class="icon icon-img"></i>
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/hoi-nhap-quoc-te-tac-dong-den-viec-lua-chon-nganh-hoc-cua-thi-sinh-post603437.html" title="Hội nhập quốc tế tác động đến việc lựa chọn ngành học của thí sinh">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/zngujv/2022_08_06/lua-chon-nganh-dao-tao-ve-ngoai-ngu-de-don-dau-xu-huong-nghe-nghiep-trong-tuong-lai-2755.jpg" alt="Lựa chọn ngành đào tạo về ngoại ngữ để đón đầu xu hướng nghề nghiệp trong tương lai">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603437">
- <a class="cms-link" href="https://giaoducthoidai.vn/hoi-nhap-quoc-te-tac-dong-den-viec-lua-chon-nganh-hoc-cua-thi-sinh-post603437.html" title="Hội nhập quốc tế tác động đến việc lựa chọn ngành học của thí sinh">
- Hội nhập quốc tế tác động đến việc lựa chọn ngành học của thí sinh
+  <h3 class="story__heading" data-tracking="603428"*ngIf="(h>1)&&(h<6)">
+ <a class="cms-link" (click)="view2(item.title,item.content,item.day)">
+   {{item.title}}
   
  </a>
  </h3> 
@@ -566,265 +272,13 @@
  
  
  
- <div class="col-wrapper zone">
- <div class="main-col">
  
-  
-  <div class="onemain-list">
- 
- 
- <div class="box-heading">
-  <h2 class="wrap-heading"><a class="heading" href="https://giaoducthoidai.vn/thoi-su/" title="Thời sự">Thời sự</a></h2>
- </div> 
- 
- <div class="box-content">
- <div class="rank-1" data-source="zone-box-home-1">
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/tu-nay-den-2030-tiep-tuc-tim-kiem-quy-tap-khoang-15-000-hai-cot-liet-si-post603546.html" title="Từ nay đến 2030 tiếp tục tìm kiếm, quy tập khoảng 15.000 hài cốt liệt sĩ">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/550x367/Uploaded/2022/pqmvxpiu/2022_08_07/hai-cot-liet-si-7648.jpg" alt="Ảnh minh họa.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603546">
- <a class="cms-link" href="https://giaoducthoidai.vn/tu-nay-den-2030-tiep-tuc-tim-kiem-quy-tap-khoang-15-000-hai-cot-liet-si-post603546.html" title="Từ nay đến 2030 tiếp tục tìm kiếm, quy tập khoảng 15.000 hài cốt liệt sĩ">
- Từ nay đến 2030 tiếp tục tìm kiếm, quy tập khoảng 15.000 hài cốt liệt sĩ
-  
- </a>
- </h3> 
- 
- 
- <time class="story__time" datetime="2022-08-07T22:19:43+0700" data-time="1659885583">
- 
- 07/08/2022 22:19
- </time>
- 
- 
-  <div class="story__summary story__shorten">
- GD&amp;TĐ - Thủ tướng Phạm Minh Chính yêu cầu từ nay đến năm 2030, thực hiện tìm kiếm, quy tập được khoảng 15.000 hài cốt liệt sĩ; hoàn thành việc tìm kiếm, quy tập và kết luận khu vực, địa bàn có thông tin mộ liệt sĩ tập thể; từ năm 2031 trở đi, tiếp tục tìm kiếm, quy tập hài cốt liệt sĩ đến khi không còn thông tin về hài cốt liệt sĩ, mộ liệt sĩ.
- </div>
- </article>
- </div>
-  <div class="rank-2" data-source="zone-box-home-1">
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/da-nang-chay-lon-o-cua-hang-ban-do-me-va-be-post603549.html" title="Đà Nẵng: Cháy lớn ở cửa hàng bán đồ mẹ và bé">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/70x40/Uploaded/2022/botnhn/2022_08_07/544795c599765b2802676-3323.jpg" alt="Khói đen bốc ra từ cửa hàng. ">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603549">
- <a class="cms-link" href="https://giaoducthoidai.vn/da-nang-chay-lon-o-cua-hang-ban-do-me-va-be-post603549.html" title="Đà Nẵng: Cháy lớn ở cửa hàng bán đồ mẹ và bé">
- Đà Nẵng: Cháy lớn ở cửa hàng bán đồ mẹ và bé
-  
- </a>
- </h3> 
- 
- 
- <time class="story__time" datetime="2022-08-07T22:20:23+0700" data-time="1659885623">
- 
- 07/08/2022 22:20
- </time>
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/kiem-tra-xac-minh-tiec-chia-tay-nghi-huu-cua-nguyen-giam-doc-cdc-quang-ninh-post603541.html" title="Kiểm tra, xác minh tiệc chia tay nghỉ hưu của nguyên Giám đốc CDC Quảng Ninh">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/70x40/Uploaded/2022/pqmvxpiu/2022_08_07/fbimg1659401018272-1659460343995-255.jpg" alt="Ảnh: Facebook Ninh Chu.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603541">
- <a class="cms-link" href="https://giaoducthoidai.vn/kiem-tra-xac-minh-tiec-chia-tay-nghi-huu-cua-nguyen-giam-doc-cdc-quang-ninh-post603541.html" title="Kiểm tra, xác minh tiệc chia tay nghỉ hưu của nguyên Giám đốc CDC Quảng Ninh">
- Kiểm tra, xác minh tiệc chia tay nghỉ hưu của nguyên Giám đốc CDC Quảng Ninh
-  
- </a>
- </h3> 
- 
- 
- <time class="story__time" datetime="2022-08-07T19:37:19+0700" data-time="1659875839">
- 
- 07/08/2022 19:37
- </time>
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/tu-1-9-gui-hang-tren-xe-khach-phai-cung-cap-6-thong-tin-post603540.html" title="Từ 1/9, gửi hàng trên xe khách phải cung cấp 6 thông tin">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/70x40/Uploaded/2022/pqmvxpiu/2022_08_07/20201207105131-img-9718-1607436294-width1200height630-1607436479-width1200height630-5230.jpg" alt="Ảnh minh họa.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603540">
- <a class="cms-link" href="https://giaoducthoidai.vn/tu-1-9-gui-hang-tren-xe-khach-phai-cung-cap-6-thong-tin-post603540.html" title="Từ 1/9, gửi hàng trên xe khách phải cung cấp 6 thông tin">
- Từ 1/9, gửi hàng trên xe khách phải cung cấp 6 thông tin
-  
- </a>
- </h3> 
- 
- 
- <time class="story__time" datetime="2022-08-07T19:26:11+0700" data-time="1659875171">
- 
- 07/08/2022 19:26
- </time>
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/quang-binh-xu-phat-gan-1-000-truong-hop-vi-pham-giao-thong-dot-cao-diem-post603523.html" title="Quảng Bình: Xử phạt gần 1.000 trường hợp vi phạm giao thông đợt cao điểm">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/70x40/Uploaded/2022/ahpkhun/2022_06_27/anh-csgt-1-2385.jpg" alt="Lực lượng CSGT Quảng Bình xử lý các phương tiện vi phạm giao thông.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603523">
- <a class="cms-link" href="https://giaoducthoidai.vn/quang-binh-xu-phat-gan-1-000-truong-hop-vi-pham-giao-thong-dot-cao-diem-post603523.html" title="Quảng Bình: Xử phạt gần 1.000 trường hợp vi phạm giao thông đợt cao điểm">
- Quảng Bình: Xử phạt gần 1.000 trường hợp vi phạm giao thông đợt cao điểm
-  
- </a>
- </h3> 
- 
- 
- <time class="story__time" datetime="2022-08-07T16:40:50+0700" data-time="1659865250">
- 
- 07/08/2022 16:40
- </time>
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/hoan-thanh-doan-tren-cao-duong-sat-nhon-ga-ha-noi-cham-nhat-vao-cuoi-nam-2022-post603527.html" title="Hoàn thành đoạn trên cao đường sắt Nhổn-Ga Hà Nội chậm nhất vào cuối năm 2022 ">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/70x40/Uploaded/2022/znaebz/2022_08_07/img8444-16598524200821648735625-2811.jpg" alt="Sau khi khảo sát, kiểm tra thi công các hạng mục công trình dự án đường sắt Nhổn-Ga Hà Nội, Thủ tướng Phạm Minh Chính đã có cuộc làm việc với lãnh đạo các bộ, ngành, đơn vị nhà thầu thi công và Thành phố Hà Nội để tháo gỡ các khó khăn, vướng mắc, thúc đẩy tiến độ xây dựng dự án này. Ảnh: VGP/Nhật Bắc.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603527">
- <a class="cms-link" href="https://giaoducthoidai.vn/hoan-thanh-doan-tren-cao-duong-sat-nhon-ga-ha-noi-cham-nhat-vao-cuoi-nam-2022-post603527.html" title="Hoàn thành đoạn trên cao đường sắt Nhổn-Ga Hà Nội chậm nhất vào cuối năm 2022 ">
- Hoàn thành đoạn trên cao đường sắt Nhổn-Ga Hà Nội chậm nhất vào cuối năm 2022 
-  <i class="icon icon-img"></i>
- </a>
- </h3> 
- 
- 
- <time class="story__time" datetime="2022-08-07T15:36:28+0700" data-time="1659861388">
- 
- 07/08/2022 15:36
- </time>
- </article>
-  </div>
- </div>
- </div>
- </div>
- <div class="sub-col">
- 
-  <div class="headline-list">
- 
- 
- <div class="box-heading">
-  <h2 class="wrap-heading">
- <a class="heading" href="https://giaoducthoidai.vn/chu-de/tieu-diem-tuan-135.html" title="Tiêu điểm tuần">
- <span class="icon icon-star"></span> Tiêu điểm tuần
- </a>
- </h2>
- </div> 
- 
- <div class="box-content" data-source="topic-box-135">
-  <article class="story">
- 
- 
-  <h3 class="story__heading" data-tracking="603241">
- <a class="cms-link" href="https://giaoducthoidai.vn/bo-truong-nguyen-kim-son-can-hieu-dung-ban-chat-cua-tu-chu-dai-hoc-post603241.html" title="Bộ trưởng Nguyễn Kim Sơn: Cần hiểu đúng bản chất của tự chủ đại học">
- Bộ trưởng Nguyễn Kim Sơn: Cần hiểu đúng bản chất của tự chủ đại học
-  
- </a>
- </h3> 
- </article>
-  <article class="story">
- 
- 
-  <h3 class="story__heading" data-tracking="603535">
- <a class="cms-link" href="https://giaoducthoidai.vn/duong-len-dinh-olympia-nu-sinh-ninh-thuan-gay-an-tuong-manh-post603535.html" title="Đường lên đỉnh Olympia: Nữ sinh Ninh Thuận gây ấn tượng mạnh ">
- Đường lên đỉnh Olympia: Nữ sinh Ninh Thuận gây ấn tượng mạnh 
-  <i class="icon icon-video"></i>
- </a>
- </h3> 
- </article>
-  <article class="story">
- 
- 
-  <h3 class="story__heading" data-tracking="603320">
- <a class="cms-link" href="https://giaoducthoidai.vn/bo-gd-dt-ban-hanh-khung-ke-hoach-thoi-gian-nam-hoc-2022-2023-post603320.html" title="Bộ GD&amp;ĐT ban hành khung kế hoạch thời gian năm học 2022-2023">
- Bộ GD&amp;ĐT ban hành khung kế hoạch thời gian năm học 2022-2023
-  
- </a>
- </h3> 
- </article>
-  <article class="story">
- 
- 
-  <h3 class="story__heading" data-tracking="603465">
- <a class="cms-link" href="https://giaoducthoidai.vn/bo-ngoai-giao-nga-canh-bao-quan-doi-ukraine-co-the-lap-lai-tham-hoa-chernobyl-post603465.html" title="Bộ Ngoại giao Nga cảnh báo quân đội Ukraine có thể lặp lại thảm họa Chernobyl">
- Bộ Ngoại giao Nga cảnh báo quân đội Ukraine có thể lặp lại thảm họa Chernobyl
-  
- </a>
- </h3> 
- </article>
-  <article class="story">
- 
- 
-  <h3 class="story__heading" data-tracking="603471">
- <a class="cms-link" href="https://giaoducthoidai.vn/bi-phan-ung-vec-ra-thong-bao-moi-ve-so-du-tai-khoan-thu-phi-khong-dung-post603471.html" title="Bị phản ứng, VEC ra thông báo mới về số dư tài khoản thu phí không dừng">
- Bị phản ứng, VEC ra thông báo mới về số dư tài khoản thu phí không dừng
-  
- </a>
- </h3> 
- </article>
-  </div>
- </div><!-- data from redis -->
- <style type="text/css">#HAPO_preview a{font-weight: bold}#HAPO_preview a:hover{color:#ae0001 !important;}#HAPO_preview{ max-height: 105px;overflow-y:auto;clear: both; text-align: left; margin-top: 2px; margin-bottom: 2px; font-size:12px !important; padding-bottom:2px; border:1px solid #CECECE; color:#666; width:100%; }#HAPO_preview .HAPO_preview_title{ border-bottom:1px solid #CECECE; font-size:13px; padding-bottom:4px; font-weight:bold; padding:6px 10px; background-color: #136ca8; background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ddd)); background: -webkit-linear-gradient(top, #fff, #ddd); background: -moz-linear-gradient(top, #fff, #ddd); background: -ms-linear-gradient(top,#fff, #ddd); background: -o-linear-gradient(top, #fff, #ddd);}#HAPO_preview.HAPO_vertical ul{ line-height:22px; list-style:circle !important; margin:10px !important; }#HAPO_preview.HAPO_vertical ul li{ list-style:circle inside !important; display:list-item !important; background: none !important;border-bottom: 1px dashed #CECECE; padding-bottom: 5px; margin-bottom: 5px;}#HAPO_preview.HAPO_vertical ul li a{ color:#222; text-decoration:none; }</style><div id="HAPO_preview" class="HAPO_vertical"><div class="HAPO_preview_title">Liên kết hữu ích</div><ul><li >Website <a href="https://danhgiatot.vn/" target="_blank" title="Đánh Giá Tốt">Đánh Giá Tốt</a> so sánh giá</li></ul></div>
- </div>
- </div>
  
   <div class="onemain-foursub">
  <div class="box-heading">
  <h3 class="wrap-heading">
- <a class="heading" href="" title="Trồng người">
+ <a class="heading" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+ [routerLink]="['/bodybymenu/Trồng người']" (click)=" setActive('Trồng người')" title="Trồng người">
 Trồng người
  </a>
  </h3>
@@ -833,119 +287,56 @@ Trồng người
  
  <div class="box-content">
  <div class="item-primary" data-source="zone-box-home-8">
- <article class="story">
+ <article class="story" *ngFor="let item of dataTrongNguoi;let h =index">
  
  
- <figure class="story__thumb">
+ <figure class="story__thumb"*ngIf="h<1">
  
- <a href="https://giaoducthoidai.vn/da-nang-chay-nha-khien-3-nguoi-trong-gia-dinh-tu-vong-post603532.html" title="Đà Nẵng: Cháy nhà khiến 3 người trong gia đình tử vong">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/600x338/Uploaded/2022/botnhn/2022_08_07/e5564b053db3ffeda6a2-6038.jpg" alt="Căn nhà xảy ra vụ cháy. Ảnh: Công an. ">
+ <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+  <img class="lazyload" src="{{item.image}}" alt="{{item.title}} ">
  
  
  </a>
  </figure>
  
  
-  <h3 class="story__heading" data-tracking="603532">
- <a class="cms-link" href="https://giaoducthoidai.vn/da-nang-chay-nha-khien-3-nguoi-trong-gia-dinh-tu-vong-post603532.html" title="Đà Nẵng: Cháy nhà khiến 3 người trong gia đình tử vong">
- Đà Nẵng: Cháy nhà khiến 3 người trong gia đình tử vong
+  <h3 class="story__heading" data-tracking="603532" *ngIf="h<1">
+ <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+   {{item.title}}
   
  </a>
  </h3> 
  
  
- <time class="story__time" datetime="2022-08-07T17:02:38+0700" data-time="1659866558">
+ <time class="story__time" datetime="2022-08-07T17:02:38+0700" data-time="1659866558"*ngIf="h<1">
  
- 07/08/2022 17:02
+   {{item.time}}
  </time>
  
  
-  <div class="story__summary story__shorten">
- GD&amp;TĐ -&nbsp;Chiều 7/8, Công an quận Hải Châu (TP. Đà Nẵng) cho biết, đã xảy ra vụ cháy tại ngôi nhà số 459 Trưng Nữ Vương (quận Hải Châu) đã khiến 3 người tử vong.
+  <div class="story__summary story__shorten"*ngIf="h<1">
+   {{item.description}}
  </div>
  </article>
  </div>
   <div class="item-secondary" data-source="zone-box-home-8">
  
- <article class="story">
+ <article class="story" *ngFor="let item of dataTrongNguoi;let h =index">
  
  
- <figure class="story__thumb">
+ <figure class="story__thumb" *ngIf="(h>1)&&(h<6)">
  
- <a href="https://giaoducthoidai.vn/sua-thong-tin-hop-dong-vay-tien-cua-khach-hang-roi-chiem-doat-gan-21-ty-dong-post603517.html" title="Sửa thông tin hợp đồng vay tiền của khách hàng rồi chiếm đoạt gần 21 tỷ đồng">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/botnhn/2022_08_07/8d2cb5769ec25c9c05d3-1808.jpg" alt="Đối tượng Nguyễn Văn Lâm.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603517">
- <a class="cms-link" href="https://giaoducthoidai.vn/sua-thong-tin-hop-dong-vay-tien-cua-khach-hang-roi-chiem-doat-gan-21-ty-dong-post603517.html" title="Sửa thông tin hợp đồng vay tiền của khách hàng rồi chiếm đoạt gần 21 tỷ đồng">
- Sửa thông tin hợp đồng vay tiền của khách hàng rồi chiếm đoạt gần 21 tỷ đồng
-  
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/ke-dung-tuyp-sat-danh-trong-thuong-2-nguoi-sau-mau-thuan-linh-an-post603522.html" title="Kẻ dùng tuýp sắt đánh trọng thương 2 người sau mâu thuẫn lĩnh án">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/jagttb/2022_08_07/d-9524.png" alt="Toàn cảnh phiên tòa xét xử bị cáo Nguyễn Ngọc Tài.">
+ <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+  <img class="lazyload" src="{{item.image}}" alt="{{item.title}}">
  
  
  </a>
  </figure>
  
  
-  <h3 class="story__heading" data-tracking="603522">
- <a class="cms-link" href="https://giaoducthoidai.vn/ke-dung-tuyp-sat-danh-trong-thuong-2-nguoi-sau-mau-thuan-linh-an-post603522.html" title="Kẻ dùng tuýp sắt đánh trọng thương 2 người sau mâu thuẫn lĩnh án">
- Kẻ dùng tuýp sắt đánh trọng thương 2 người sau mâu thuẫn lĩnh án
-  
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/an-giang-bat-doi-tuong-dung-gach-nem-vo-kinh-xe-khach-post603518.html" title="An Giang: Bắt đối tượng dùng gạch ném vỡ kính xe khách ">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/jagttb/2022_08_07/untitled-5915.png" alt="Đối tượng Võ Hoài Thanh làm việc với cơ quan chức năng.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603518">
- <a class="cms-link" href="https://giaoducthoidai.vn/an-giang-bat-doi-tuong-dung-gach-nem-vo-kinh-xe-khach-post603518.html" title="An Giang: Bắt đối tượng dùng gạch ném vỡ kính xe khách ">
- An Giang: Bắt đối tượng dùng gạch ném vỡ kính xe khách 
-  
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/hy-huu-di-nhau-ve-con-dau-danh-me-chong-70-tuoi-gay-2-xuong-suon-post603516.html" title="Hy hữu: Đi nhậu về con dâu đánh mẹ chồng 70 tuổi gãy 2 xương sườn">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/ifysa/2022_08_07/2-1-con-dau-4511.jpg" alt="Nàng dâu Nguyễn Thị Kim Minh (47 tuổi) tại cơ quan công an.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603516">
- <a class="cms-link" href="https://giaoducthoidai.vn/hy-huu-di-nhau-ve-con-dau-danh-me-chong-70-tuoi-gay-2-xuong-suon-post603516.html" title="Hy hữu: Đi nhậu về con dâu đánh mẹ chồng 70 tuổi gãy 2 xương sườn">
- Hy hữu: Đi nhậu về con dâu đánh mẹ chồng 70 tuổi gãy 2 xương sườn
+  <h3 class="story__heading" data-tracking="603517"*ngIf="(h>1)&&(h<6)">
+ <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+   {{item.title}}
   
  </a>
  </h3> 
@@ -960,7 +351,8 @@ Trồng người
   <div class="onemain-foursub">
  <div class="box-heading">
  <h3 class="wrap-heading">
- <a class="heading" href="https://giaoducthoidai.vn/ket-noi/" title="Bốn phương">
+ <a class="heading" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+ [routerLink]="['/bodybymenu/Bốn phương']"(click)=" setActive('Bốn phương')" title="Bốn phương">
  Bốn phương
  </a>
  </h3>
@@ -969,268 +361,69 @@ Trồng người
  
  <div class="box-content">
  <div class="item-primary" data-source="zone-box-home-2">
- <article class="story">
+   <article class="story" *ngFor="let item of dataBonPhuong;let h =index">
  
  
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/trao-gui-yeu-thuong-qua-tung-cuon-sach-post603185.html" title="Trao gửi yêu thương qua từng cuốn sách">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/600x338/Uploaded/2022/tmgtjq/2022_08_04/anh-2-trao-gui-yeu-thuong-1377.jpg" alt="Chi hội khuyến học Khu dân cư 4b, phường Thanh Khê Tây (quận Thanh Khê, TP Đà Nẵng) tặng sách giáo khoa cho học sinh gia đình có hoàn cảnh khó khăn.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603185">
- <a class="cms-link" href="https://giaoducthoidai.vn/trao-gui-yeu-thuong-qua-tung-cuon-sach-post603185.html" title="Trao gửi yêu thương qua từng cuốn sách">
- Trao gửi yêu thương qua từng cuốn sách
-  
- </a>
- </h3> 
- 
- 
- <time class="story__time" datetime="2022-08-07T11:21:36+0700" data-time="1659846096">
- 
- 07/08/2022 11:21
- </time>
- 
- 
-  <div class="story__summary story__shorten">
- GD&amp;TĐ -&nbsp;Ngoài vận động các nguồn tài trợ để trang bị sách giáo khoa cho học sinh, nhiều chương trình tặng sách đã qua sử dụng, đổi sách cũ lấy sách mới… được nhiều trường học phát động trong dịp hè.
- </div>
- </article>
+      <figure class="story__thumb"*ngIf="h<1">
+      
+      <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+       <img class="lazyload" src="{{item.image}}" alt="{{item.title}} ">
+      
+      
+      </a>
+      </figure>
+      
+      
+       <h3 class="story__heading" data-tracking="603532" *ngIf="h<1">
+      <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+        {{item.title}}
+       
+      </a>
+      </h3> 
+      
+      
+      <time class="story__time" datetime="2022-08-07T17:02:38+0700" data-time="1659866558"*ngIf="h<1">
+      
+        {{item.time}}
+      </time>
+      
+      
+       <div class="story__summary story__shorten"*ngIf="h<1">
+        {{item.description}}
+      </div>
+      </article>
  </div>
   <div class="item-secondary" data-source="zone-box-home-2">
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/khanh-thanh-nha-khan-quang-do-do-bao-giao-duc-va-thoi-dai-ho-tro-post603531.html" title="Khánh thành nhà &apos;Khăn quàng đỏ&apos; do Báo Giáo dục và Thời đại hỗ trợ">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/djsmm/2022_08_07/nha-khan-quang-do-2-9982.jpg" alt="Đại diện Tỉnh đoàn Điện Biên, Báo Giáo dục &amp; Thời đại cùng các đơn vị tài trợ khánh thành nhà Khăn quàng đỏ hỗ trợ em Lường Thị Tuyết.">
+   <article class="story" *ngFor="let item of dataBonPhuong;let h =index">
  
  
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603531">
- <a class="cms-link" href="https://giaoducthoidai.vn/khanh-thanh-nha-khan-quang-do-do-bao-giao-duc-va-thoi-dai-ho-tro-post603531.html" title="Khánh thành nhà &apos;Khăn quàng đỏ&apos; do Báo Giáo dục và Thời đại hỗ trợ">
- Khánh thành nhà &apos;Khăn quàng đỏ&apos; do Báo Giáo dục và Thời đại hỗ trợ
-  <i class="icon icon-img"></i>
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/bac-ninh-truong-thpt-thuan-thanh-so-1-ky-niem-60-nam-thanh-lap-post603524.html" title="Bắc Ninh: Trường THPT Thuận Thành số 1 kỷ niệm 60 năm thành lập">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/jobunuk/2022_08_07/thuan-thanh-1-4571.jpg" alt="Chủ tịch UBND tỉnh Bắc Ninh - Nguyễn Hương Giang trao Cờ Thi đua của Chính phủ cho Trường THPT Thuận Thành số 1.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603524">
- <a class="cms-link" href="https://giaoducthoidai.vn/bac-ninh-truong-thpt-thuan-thanh-so-1-ky-niem-60-nam-thanh-lap-post603524.html" title="Bắc Ninh: Trường THPT Thuận Thành số 1 kỷ niệm 60 năm thành lập">
- Bắc Ninh: Trường THPT Thuận Thành số 1 kỷ niệm 60 năm thành lập
-  
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/mot-vu-trom-tien-post601141.html" title="Một vụ trộm tiền">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/mfnms/2022_07_18/26-614.jpg" alt="Một vụ trộm tiền">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="601141">
- <a class="cms-link" href="https://giaoducthoidai.vn/mot-vu-trom-tien-post601141.html" title="Một vụ trộm tiền">
- Một vụ trộm tiền
-  
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/pin-nang-luong-mat-troi-tu-xoay-theo-huong-nang-post603161.html" title="Pin năng lượng Mặt trời tự xoay theo hướng nắng">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/mfnms/2022_08_04/15-2982.jpg" alt="Hệ bám Mặt trời giúp tăng hiệu suất thu năng lượng cho các tấm pin Mặt trời từ 10 - 100%.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603161">
- <a class="cms-link" href="https://giaoducthoidai.vn/pin-nang-luong-mat-troi-tu-xoay-theo-huong-nang-post603161.html" title="Pin năng lượng Mặt trời tự xoay theo hướng nắng">
- Pin năng lượng Mặt trời tự xoay theo hướng nắng
-  
- </a>
- </h3> 
- </article>
+      <figure class="story__thumb" *ngIf="(h>1)&&(h<6)">
+      
+      <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+       <img class="lazyload" src="{{item.image}}" alt="{{item.title}}">
+      
+      
+      </a>
+      </figure>
+      
+      
+       <h3 class="story__heading" data-tracking="603517"*ngIf="(h>1)&&(h<6)">
+      <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+        {{item.title}}
+       
+      </a>
+      </h3> 
+      </article>
   </div>
  </div>
- </div>
+ </div> 
   <div class="onemain-foursub">
  
  
  <div class="box-heading">
  <h3 class="wrap-heading">
- <a class="heading" href="https://giaoducthoidai.vn/trao-doi/" title="Sức khỏe">
- Sức khỏe
- </a>
- </h3>
-  
- </div>
- 
- <div class="box-content">
- <div class="item-primary" data-source="zone-box-home-3">
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/boi-dap-dao-duc-loi-song-tu-hoat-dong-binh-di-trong-cay-cham-hoa-post601539.html" title="Bồi đắp đạo đức lối sống từ hoạt động bình dị trồng cây, chăm hoa">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/600x338/Uploaded/2022/zsgkqzftupug/2022_08_02/img-1658473916574-1659273710121-100.jpg" alt="Thầy trò Trường THCS An Dương (huyện An Dương, TP Hải Phòng) thăm viếng nghĩa trang liệt sỹ.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="601539">
- <a class="cms-link" href="https://giaoducthoidai.vn/boi-dap-dao-duc-loi-song-tu-hoat-dong-binh-di-trong-cay-cham-hoa-post601539.html" title="Bồi đắp đạo đức lối sống từ hoạt động bình dị trồng cây, chăm hoa">
- Bồi đắp đạo đức lối sống từ hoạt động bình dị trồng cây, chăm hoa
-  
- </a>
- </h3> 
- 
- 
- <time class="story__time" datetime="2022-08-07T06:43:17+0700" data-time="1659829397">
- 
- 07/08/2022 06:43
- </time>
- 
- 
-  <div class="story__summary story__shorten">
- GD&amp;TĐ - Đổi mới giáo dục hướng tới sự phát triển toàn diện nhân cách học trò, ngoài việc dạy kiến thức văn hoá, nhiều trường học tại Hải Phòng, Quảng Ninh chú trọng rèn đạo đức, kĩ năng cho học sinh qua những hoạt động thiết thực.
- </div>
- </article>
- </div>
-  <div class="item-secondary" data-source="zone-box-home-3">
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/chon-mon-lop-10-nhu-the-nao-cho-hop-ly-post603526.html" title="Chọn môn lớp 10 như thế nào cho hợp lý?">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/kpcgmvvb/2022_07_07/thay-thi-3833.jpg" alt="Thầy Nguyễn Quang Thi cùng học trò của mình. Ảnh NVCC.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603526">
- <a class="cms-link" href="https://giaoducthoidai.vn/chon-mon-lop-10-nhu-the-nao-cho-hop-ly-post603526.html" title="Chọn môn lớp 10 như thế nào cho hợp lý?">
- Chọn môn lớp 10 như thế nào cho hợp lý?
-  
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/chon-thay-qua-cong-viec-post602818.html" title="Chọn thầy qua công việc">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/tmgtjq/2022_08_01/a1-8453.jpg" alt="Thầy trò trao đổi trong giờ học. Ảnh minh họa">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="602818">
- <a class="cms-link" href="https://giaoducthoidai.vn/chon-thay-qua-cong-viec-post602818.html" title="Chọn thầy qua công việc">
- Chọn thầy qua công việc
-  
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/de-ngu-van-khong-dung-ngu-lieu-trong-sach-giao-khoa-cai-kho-van-lo-cai-hay-post603179.html" title="Đề Ngữ văn không dùng ngữ liệu trong sách giáo khoa: Cái khó vẫn ló cái hay">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/tmgtjq/2022_08_04/de-van-3-8940.jpg" alt="Cô Bùi Thị Lệ Hằng và học trò tại Trường THPT Phạm Văn Nghị - Nam Định.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603179">
- <a class="cms-link" href="https://giaoducthoidai.vn/de-ngu-van-khong-dung-ngu-lieu-trong-sach-giao-khoa-cai-kho-van-lo-cai-hay-post603179.html" title="Đề Ngữ văn không dùng ngữ liệu trong sách giáo khoa: Cái khó vẫn ló cái hay">
- Đề Ngữ văn không dùng ngữ liệu trong sách giáo khoa: Cái khó vẫn ló cái hay
-  
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/mot-nguoi-ha-noi-cua-nguyen-khai-hat-bui-vang-cua-dat-kinh-ky-post602812.html" title=" “Một người Hà Nội” của Nguyễn Khải: Hạt bụi vàng của đất Kinh Kỳ">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/tmgtjq/2022_08_01/a2-7808.jpg" alt=" “Một người Hà Nội” của Nguyễn Khải: Hạt bụi vàng của đất Kinh Kỳ">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="602812">
- <a class="cms-link" href="https://giaoducthoidai.vn/mot-nguoi-ha-noi-cua-nguyen-khai-hat-bui-vang-cua-dat-kinh-ky-post602812.html" title=" “Một người Hà Nội” của Nguyễn Khải: Hạt bụi vàng của đất Kinh Kỳ">
-  “Một người Hà Nội” của Nguyễn Khải: Hạt bụi vàng của đất Kinh Kỳ
-  
- </a>
- </h3> 
- </article>
-  </div>
- </div>
- </div>
- 
-   
-  <div class="onemain-foursub">
- 
- 
- <div class="box-heading">
- <h3 class="wrap-heading">
- <a class="heading" href="" title="Văn hóa">
+ <a class="heading" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+ [routerLink]="['/bodybymenu/Văn hóa']"(click)=" setActive('Văn hóa')" title="Văn hóa">
 Văn hóa
  </a>
  </h3>
@@ -1239,416 +432,233 @@ Văn hóa
  
  <div class="box-content">
  <div class="item-primary" data-source="zone-box-home-5">
- <article class="story">
+   <article class="story" *ngFor="let item of dataVanHoa;let h =index">
  
  
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/duong-len-dinh-olympia-nu-sinh-ninh-thuan-gay-an-tuong-manh-post603535.html" title="Đường lên đỉnh Olympia: Nữ sinh Ninh Thuận gây ấn tượng mạnh ">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/600x338/Uploaded/2022/jbvunsc/2022_08_07/nu-sinh-ninh-thuan-gay-an-tuong-manh-tai-olympia-1844.jpg" alt="Phạm Hồ Phương Nghi gây ấn tượng mạnh tại cuộc thi Đường lên đỉnh Olympia.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603535">
- <a class="cms-link" href="https://giaoducthoidai.vn/duong-len-dinh-olympia-nu-sinh-ninh-thuan-gay-an-tuong-manh-post603535.html" title="Đường lên đỉnh Olympia: Nữ sinh Ninh Thuận gây ấn tượng mạnh ">
- Đường lên đỉnh Olympia: Nữ sinh Ninh Thuận gây ấn tượng mạnh 
-  <i class="icon icon-video"></i>
- </a>
- </h3> 
- 
- 
- <time class="story__time" datetime="2022-08-07T17:33:42+0700" data-time="1659868422">
- 
- 07/08/2022 17:33
- </time>
- 
- 
-  <div class="story__summary story__shorten">
- GD&amp;TĐ - Xinh đẹp, thông minh và bản lĩnh, Phạm Hồ Phương Nghi - nữ sinh đến từ Ninh Thuận đã gây ấn tượng mạnh với khán giả tại cuộc thi tuần Đường lên đỉnh Olympia năm thứ 22.
- </div>
- </article>
+      <figure class="story__thumb"*ngIf="h<1">
+      
+      <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+       <img class="lazyload" src="{{item.image}}" alt="{{item.title}} ">
+      
+      
+      </a>
+      </figure>
+      
+      
+       <h3 class="story__heading" data-tracking="603532" *ngIf="h<1">
+      <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+        {{item.title}}
+       
+      </a>
+      </h3> 
+      
+      
+      <time class="story__time" datetime="2022-08-07T17:02:38+0700" data-time="1659866558"*ngIf="h<1">
+      
+        {{item.time}}
+      </time>
+      
+      
+       <div class="story__summary story__shorten"*ngIf="h<1">
+        {{item.description}}
+      </div>
+      </article>
  </div>
   <div class="item-secondary" data-source="zone-box-home-5">
  
- <article class="story">
+   <article class="story" *ngFor="let item of dataVanHoa;let h =index">
  
  
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/nu-thu-khoa-nuoi-uoc-mo-tro-thanh-co-giao-post603093.html" title="Nữ thủ khoa nuôi ước mơ trở thành cô giáo">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/sbvunua/2022_08_03/thu-khoa-1-3-9656.jpg" alt="Phạm Thùy Dung – một trong 5 thủ khoa khối C00 của Thanh Hóa mơ ước trở thành cô giáo.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603093">
- <a class="cms-link" href="https://giaoducthoidai.vn/nu-thu-khoa-nuoi-uoc-mo-tro-thanh-co-giao-post603093.html" title="Nữ thủ khoa nuôi ước mơ trở thành cô giáo">
- Nữ thủ khoa nuôi ước mơ trở thành cô giáo
-  
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/ao-danh-cho-tre-tu-ky-gianh-giai-nhat-thi-khoi-nghiep-cong-nghe-trong-sinh-vien-da-nang-post603442.html" title="&apos;Áo dành cho trẻ tự kỷ&apos; giành giải nhất thi Khởi nghiệp công nghệ trong sinh viên Đà Nẵng">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/botnhn/2022_08_06/dscf7608-4684.jpg" alt="Các thí sinh đang trình bày phần dự thi của mình. ">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603442">
- <a class="cms-link" href="https://giaoducthoidai.vn/ao-danh-cho-tre-tu-ky-gianh-giai-nhat-thi-khoi-nghiep-cong-nghe-trong-sinh-vien-da-nang-post603442.html" title="&apos;Áo dành cho trẻ tự kỷ&apos; giành giải nhất thi Khởi nghiệp công nghệ trong sinh viên Đà Nẵng">
- &apos;Áo dành cho trẻ tự kỷ&apos; giành giải nhất thi Khởi nghiệp công nghệ trong sinh viên Đà Nẵng
-  
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/nu-sinh-truong-huyen-thu-khoa-xu-thanh-voi-2-diem-10-post603353.html" title="Nữ sinh trường huyện thủ khoa xứ Thanh với 2 điểm 10">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/sbvunua/2022_08_05/2d3a0f46509992c7cb88-4365.jpg" alt="Nữ thủ khoa Nguyễn Thị Hạnh và bố tại gia đình.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603353">
- <a class="cms-link" href="https://giaoducthoidai.vn/nu-sinh-truong-huyen-thu-khoa-xu-thanh-voi-2-diem-10-post603353.html" title="Nữ sinh trường huyện thủ khoa xứ Thanh với 2 điểm 10">
- Nữ sinh trường huyện thủ khoa xứ Thanh với 2 điểm 10
-  
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/nghe-an-phat-huy-vai-tro-doan-trong-huong-nghiep-post603342.html" title="Nghệ An phát huy vai trò Đoàn trong hướng nghiệp ">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/ayhunou/2022_08_05/276046063-714829149888882-638411712323249758-n-610.jpg" alt="Chương trình tư vấn hướng nghiệp cho học sinh, sinh viên được tổ chức thường xuyên tại Nghệ An.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603342">
- <a class="cms-link" href="https://giaoducthoidai.vn/nghe-an-phat-huy-vai-tro-doan-trong-huong-nghiep-post603342.html" title="Nghệ An phát huy vai trò Đoàn trong hướng nghiệp ">
- Nghệ An phát huy vai trò Đoàn trong hướng nghiệp 
-  
- </a>
- </h3> 
- </article>
+      <figure class="story__thumb" *ngIf="(h>1)&&(h<6)">
+      
+      <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+       <img class="lazyload" src="{{item.image}}" alt="{{item.title}}">
+      
+      
+      </a>
+      </figure>
+      
+      
+       <h3 class="story__heading" data-tracking="603517"*ngIf="(h>1)&&(h<6)">
+      <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+        {{item.title}}
+       
+      </a>
+      </h3> 
+      </article>
   </div>
  </div>
  </div>
  
+ <div class="onemain-foursub">
  
+ 
+   <div class="box-heading">
+   <h3 class="wrap-heading">
+   <a class="heading" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+   [routerLink]="['/bodybymenu/Tinh hoa']" (click)=" setActive('Tinh hoa')" title="Tinh hoa">
+  Tinh hoa
+   </a>
+   </h3>
    
-  <div class="onemain-foursub">
- <div class="box-heading">
- <h3 class="wrap-heading">
- <a class="heading" href="" title="Tinh hoa">
-Tinh hoa
- </a>
- </h3>
- 
- </div>
- 
- <div class="box-content">
- <div class="item-primary" data-source="zone-box-home-13">
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/thai-nguyen-ngay-chien-si-tinh-nguyen-vi-dan-em-than-yeu-post603525.html" title="Thái Nguyên: Ngày Chiến sĩ tình nguyện &quot;Vì đàn em thân yêu&quot;">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/600x338/Uploaded/2022/zngujv/2022_08_07/ra-quan-ngay-chien-sy-tinh-nguyen-vi-dan-em-than-yeu-5933.jpg" alt="Tuổi trẻ Thái Nguyên ra quân Ngày chiến sỹ tình nguyện &quot;Vì đàn em thân yêu&quot;.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603525">
- <a class="cms-link" href="https://giaoducthoidai.vn/thai-nguyen-ngay-chien-si-tinh-nguyen-vi-dan-em-than-yeu-post603525.html" title="Thái Nguyên: Ngày Chiến sĩ tình nguyện &quot;Vì đàn em thân yêu&quot;">
- Thái Nguyên: Ngày Chiến sĩ tình nguyện &quot;Vì đàn em thân yêu&quot;
-  
- </a>
- </h3> 
- 
- 
- <time class="story__time" datetime="2022-08-07T17:22:01+0700" data-time="1659867721">
- 
- 07/08/2022 17:22
- </time>
- 
- 
-  <div class="story__summary story__shorten">
- GD&amp;TĐ - Ngày 7/8, Huyện đoàn, Hội đồng đội huyện Phú Lương (Thái Nguyên) tổ chức ra quân Ngày chiến sỹ tình nguyện "Vì đàn em thân yêu".
- </div>
- </article>
- </div>
-  <div class="item-secondary" data-source="zone-box-home-13">
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/khanh-thanh-nha-khan-quang-do-do-bao-giao-duc-va-thoi-dai-ho-tro-post603531.html" title="Khánh thành nhà &apos;Khăn quàng đỏ&apos; do Báo Giáo dục và Thời đại hỗ trợ">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/djsmm/2022_08_07/nha-khan-quang-do-2-9982.jpg" alt="Đại diện Tỉnh đoàn Điện Biên, Báo Giáo dục &amp; Thời đại cùng các đơn vị tài trợ khánh thành nhà Khăn quàng đỏ hỗ trợ em Lường Thị Tuyết.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603531">
- <a class="cms-link" href="https://giaoducthoidai.vn/khanh-thanh-nha-khan-quang-do-do-bao-giao-duc-va-thoi-dai-ho-tro-post603531.html" title="Khánh thành nhà &apos;Khăn quàng đỏ&apos; do Báo Giáo dục và Thời đại hỗ trợ">
- Khánh thành nhà &apos;Khăn quàng đỏ&apos; do Báo Giáo dục và Thời đại hỗ trợ
-  <i class="icon icon-img"></i>
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/100-hoc-sinh-kho-khan-duoc-mua-sam-mien-phi-tai-nha-sach-yeu-thuong-0-dong-post603521.html" title="100 học sinh khó khăn được mua sắm miễn phí tại ‘Nhà sách yêu thương 0 đồng’">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/botnhn/2022_08_07/58832ec0c574072a5e6510-5326.jpg" alt="Các em học sinh có hoàn cảnh khó khăn được mua sắm miễn phí tại &quot;Nhà sách yêu thương 0 đồng”. ">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603521">
- <a class="cms-link" href="https://giaoducthoidai.vn/100-hoc-sinh-kho-khan-duoc-mua-sam-mien-phi-tai-nha-sach-yeu-thuong-0-dong-post603521.html" title="100 học sinh khó khăn được mua sắm miễn phí tại ‘Nhà sách yêu thương 0 đồng’">
- 100 học sinh khó khăn được mua sắm miễn phí tại ‘Nhà sách yêu thương 0 đồng’
-  
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/the-gioi-rong-lon-cua-co-gai-ty-hon-post602620.html" title="Thế giới rộng lớn của cô gái &apos;tý hon&apos;">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/mfnms/2022_07_30/24-25-3-4371.jpg" alt="Đến nay, thư viện sách của Thúy Nga đã có hàng nghìn đầu sách ở nhiều thể loại.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="602620">
- <a class="cms-link" href="https://giaoducthoidai.vn/the-gioi-rong-lon-cua-co-gai-ty-hon-post602620.html" title="Thế giới rộng lớn của cô gái &apos;tý hon&apos;">
- Thế giới rộng lớn của cô gái &apos;tý hon&apos;
-  
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/trao-gui-yeu-thuong-qua-tung-cuon-sach-post603185.html" title="Trao gửi yêu thương qua từng cuốn sách">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/tmgtjq/2022_08_04/anh-2-trao-gui-yeu-thuong-1377.jpg" alt="Chi hội khuyến học Khu dân cư 4b, phường Thanh Khê Tây (quận Thanh Khê, TP Đà Nẵng) tặng sách giáo khoa cho học sinh gia đình có hoàn cảnh khó khăn.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603185">
- <a class="cms-link" href="https://giaoducthoidai.vn/trao-gui-yeu-thuong-qua-tung-cuon-sach-post603185.html" title="Trao gửi yêu thương qua từng cuốn sách">
- Trao gửi yêu thương qua từng cuốn sách
-  
- </a>
- </h3> 
- </article>
-  </div>
- </div>
- </div>
-  
-  <div class="onemain-foursub">
- 
- 
- <div class="box-heading">
- <h3 class="wrap-heading">
- <a class="heading" href="" title="Giáo dục liêm chính">
-    Giáo dục liêm chính
- </a>
- </h3>
- 
- </div>
- 
- <div class="box-content">
- <div class="item-primary" data-source="zone-box-home-10">
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/video-loat-vu-khi-phuong-tay-tai-ukraine-ve-tay-quan-doi-nga-post603533.html" title="Video: Loạt vũ khí phương Tây tại Ukraine về tay quân đội Nga">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/600x338/Uploaded/2022/djshm/2022_08_07/nga-thu-giu-vu-khi-phuong-tay-4332.png" alt="Video: Loạt vũ khí phương Tây tại Ukraine về tay quân đội Nga">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603533">
- <a class="cms-link" href="https://giaoducthoidai.vn/video-loat-vu-khi-phuong-tay-tai-ukraine-ve-tay-quan-doi-nga-post603533.html" title="Video: Loạt vũ khí phương Tây tại Ukraine về tay quân đội Nga">
- Video: Loạt vũ khí phương Tây tại Ukraine về tay quân đội Nga
-  <i class="icon icon-video"></i>
- </a>
- </h3> 
- 
- 
- <time class="story__time" datetime="2022-08-07T16:44:07+0700" data-time="1659865447">
- 
- 07/08/2022 16:44
- </time>
- 
- 
-  <div class="story__summary story__shorten">
- GD&amp;TĐ - Bộ Quốc phòng Nga công bố video thể hiện một lô vũ khí phương Tây mà họ thu giữ được tại các vị trí của Ukraine trong trận chiến theo hướng Izyum.
- </div>
- </article>
- </div>
-  <div class="item-secondary" data-source="zone-box-home-10">
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/cbs-khoang-70-vien-tro-quan-su-cua-phuong-tay-cho-ukraine-khong-den-dich-post603509.html" title="CBS: Khoảng 70% viện trợ quân sự của phương Tây cho Ukraine không đến đích ">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/djshm/2022_08_07/70-phan-tram-vu-khi-phuong-tay-cho-ukraine-5985.png" alt="Vũ khí phương Tây chuyển cho Ukraine.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603509">
- <a class="cms-link" href="https://giaoducthoidai.vn/cbs-khoang-70-vien-tro-quan-su-cua-phuong-tay-cho-ukraine-khong-den-dich-post603509.html" title="CBS: Khoảng 70% viện trợ quân sự của phương Tây cho Ukraine không đến đích ">
- CBS: Khoảng 70% viện trợ quân sự của phương Tây cho Ukraine không đến đích 
-  
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/video-doan-xe-thiet-bi-quan-su-ram-rap-di-ve-huong-crimea-post603506.html" title="Video: Đoàn xe thiết bị quân sự rầm rập đi về hướng Crimea ">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/djshm/2022_08_07/doan-xe-nga-9922.png" alt="Đoàn xe quân sự lớn trên đường phố.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603506">
- <a class="cms-link" href="https://giaoducthoidai.vn/video-doan-xe-thiet-bi-quan-su-ram-rap-di-ve-huong-crimea-post603506.html" title="Video: Đoàn xe thiết bị quân sự rầm rập đi về hướng Crimea ">
- Video: Đoàn xe thiết bị quân sự rầm rập đi về hướng Crimea 
-  <i class="icon icon-video"></i>
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/bo-quoc-phong-anh-cuoc-chien-o-ukraine-bat-dau-buoc-sang-giai-doan-moi-post603502.html" title="Bộ Quốc phòng Anh: Cuộc chiến ở Ukraine bắt đầu bước sang giai đoạn mới ">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/djshm/2022_08_07/cuoc-chien-nga-vs-ukraine-718.png" alt="Binh sĩ Ukraine">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603502">
- <a class="cms-link" href="https://giaoducthoidai.vn/bo-quoc-phong-anh-cuoc-chien-o-ukraine-bat-dau-buoc-sang-giai-doan-moi-post603502.html" title="Bộ Quốc phòng Anh: Cuộc chiến ở Ukraine bắt đầu bước sang giai đoạn mới ">
- Bộ Quốc phòng Anh: Cuộc chiến ở Ukraine bắt đầu bước sang giai đoạn mới 
-  
- </a>
- </h3> 
- </article>
- 
- <article class="story">
- 
- 
- <figure class="story__thumb">
- 
- <a href="https://giaoducthoidai.vn/it-nhat-121-nguoi-bi-thuong-17-nhan-vien-cuu-hoa-mat-tich-trong-vu-chay-kho-dau-o-cuba-post603496.html" title="Ít nhất 121 người bị thương, 17 nhân viên cứu hỏa mất tích trong vụ cháy kho dầu ở Cuba ">
-  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/djshm/2022_08_07/cuba-chay-kho-du-tru-dau-998.png" alt="Cơ sở lưu trữ dầu ở Cuba cháy sau khi bị sét đánh.">
- 
- 
- </a>
- </figure>
- 
- 
-  <h3 class="story__heading" data-tracking="603496">
- <a class="cms-link" href="https://giaoducthoidai.vn/it-nhat-121-nguoi-bi-thuong-17-nhan-vien-cuu-hoa-mat-tich-trong-vu-chay-kho-dau-o-cuba-post603496.html" title="Ít nhất 121 người bị thương, 17 nhân viên cứu hỏa mất tích trong vụ cháy kho dầu ở Cuba ">
- Ít nhất 121 người bị thương, 17 nhân viên cứu hỏa mất tích trong vụ cháy kho dầu ở Cuba 
-  <i class="icon icon-video"></i>
- </a>
- </h3> 
- </article>
-  </div>
- </div>
- </div>
+   </div>
+   
+   <div class="box-content">
+   <div class="item-primary" data-source="zone-box-home-5">
+     <article class="story" *ngFor="let item of dataTinhHoa;let h =index">
+   
+   
+        <figure class="story__thumb"*ngIf="h<1">
+        
+        <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+         <img class="lazyload" src="{{item.image}}" alt="{{item.title}} ">
+        
+        
+        </a>
+        </figure>
+        
+        
+         <h3 class="story__heading" data-tracking="603532" *ngIf="h<1">
+        <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+          {{item.title}}
+         
+        </a>
+        </h3> 
+        
+        
+        <time class="story__time" datetime="2022-08-07T17:02:38+0700" data-time="1659866558"*ngIf="h<1">
+        
+          {{item.time}}
+        </time>
+        
+        
+         <div class="story__summary story__shorten"*ngIf="h<1">
+          {{item.description}}
+        </div>
+        </article>
+   </div>
+    <div class="item-secondary" data-source="zone-box-home-5">
+   
+     <article class="story" *ngFor="let item of dataTinhHoa;let h =index">
+   
+   
+        <figure class="story__thumb" *ngIf="(h>1)&&(h<6)">
+        
+        <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+         <img class="lazyload" src="{{item.image}}" alt="{{item.title}}">
+        
+        
+        </a>
+        </figure>
+        
+        
+         <h3 class="story__heading" data-tracking="603517"*ngIf="(h>1)&&(h<6)">
+        <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+          {{item.title}}
+         
+        </a>
+        </h3> 
+        </article>
+    </div>
+   </div>
+   </div>
+   <div class="onemain-foursub">
+ 
+ 
+      <div class="box-heading">
+      <h3 class="wrap-heading">
+      <a class="heading"routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+      [routerLink]="['/bodybymenu/Giáo dục liêm chính']"(click)=" setActive('Giáo dục liêm chính')" title="Giáo dục liêm chính">
+     Giáo dục liêm chính
+      </a>
+      </h3>
+      
+      </div>
+      
+      <div class="box-content">
+      <div class="item-primary" data-source="zone-box-home-5">
+        <article class="story" *ngFor="let item of dataGDLC;let h =index">
+      
+      
+           <figure class="story__thumb"*ngIf="h<1">
+           
+           <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+            <img class="lazyload" src="{{item.image}}" alt="{{item.title}} ">
+           
+           
+           </a>
+           </figure>
+           
+           
+            <h3 class="story__heading" data-tracking="603532" *ngIf="h<1">
+           <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+             {{item.title}}
+            
+           </a>
+           </h3> 
+           
+           
+           <time class="story__time" datetime="2022-08-07T17:02:38+0700" data-time="1659866558"*ngIf="h<1">
+           
+             {{item.time}}
+           </time>
+           
+           
+            <div class="story__summary story__shorten"*ngIf="h<1">
+             {{item.description}}
+           </div>
+           </article>
+      </div>
+       <div class="item-secondary" data-source="zone-box-home-5">
+      
+        <article class="story" *ngFor="let item of dataGDLC;let h =index">
+      
+      
+           <figure class="story__thumb" *ngIf="(h>1)&&(h<6)">
+           
+           <a (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+            <img class="lazyload" src="{{item.image}}" alt="{{item.title}}">
+           
+           
+           </a>
+           </figure>
+           
+           
+            <h3 class="story__heading" data-tracking="603517"*ngIf="(h>1)&&(h<6)">
+           <a class="cms-link" (click)="view2(item.title,item.content,item.day)" title="{{item.title}}">
+             {{item.title}}
+            
+           </a>
+           </h3> 
+           </article>
+       </div>
+      </div>
+      </div>
  
   <div class="cate-list">
  
- <a href="https://giaoducthoidai.vn/giao-duc/" title="Giáo dục ">Giáo dục </a>
+    <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+    [routerLink]="['/bodybymenu/Giáo dục']" title="Giáo dục"(click)=" setActive('Giáo dục')" >Giáo dục </a>
  
- <a href="https://giaoducthoidai.vn/thoi-su/" title="Thời sự">Thời sự</a>
- 
- <a href="https://giaoducthoidai.vn/phap-luat/" title="Trồng người">Trồng người</a>
- 
- <a href="https://giaoducthoidai.vn/ket-noi/" title="Bốn phương">Bốn phương</a>
- 
- <a href="https://giaoducthoidai.vn/video/" title="Sức khỏe">Sức khỏe</a>
- <a href="https://giaoducthoidai.vn/video/" title="Văn hóa">Văn hóa</a>
- <a href="https://giaoducthoidai.vn/video/" title="Tinh hoa">Tinh hoa</a>
+    <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+    [routerLink]="['/bodybymenu/Thời sự']" title="Thời sự"(click)=" setActive('Thời sự')">Thời sự</a>
+    
+    <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+    [routerLink]="['/bodybymenu/Trồng người']"(click)=" setActive('Trồng người')"title="Trồng người">Trồng người</a>
+    
+    <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+    [routerLink]="['/bodybymenu/Bốn phương']"(click)=" setActive('Bốn phương')" title="Bốn phương">Bốn phương</a>
+    <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+    [routerLink]="['/bodybymenu/Văn hóa']" (click)=" setActive('Văn hóa')" title="Văn hóa">Văn hóa</a>
+    <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+    [routerLink]="['/bodybymenu/Tinh hoa']" (click)=" setActive('Tinh hoa')"title="Tinh hoa">Tinh hoa</a>
 
 
   </div>
  
  </div>
  </div>
+ <app-footer></app-footer>
  </div>
  </body>
  </html>
