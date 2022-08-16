@@ -1,0 +1,80 @@
+
+
+ <!DOCTYPE html>
+ <html lang="vi">
+ <head>
+ 
+ 
+  
+ <title>Báo Giáo dục và Thời đại Online</title>
+ <link rel="stylesheet" href="https://static.giaoducthoidai.vn/v1/web/styles/css/main.min-1.1.1.css">
+
+ </head>
+ <body >
+    <app-header></app-header>
+ <div class="wrapper-page  search-page "> 
+ 
+ 
+ <div class="site-body"> 
+ <div class="container">
+ <div class="col-wrapper">
+ <div class="main-col content-col">
+ <div class="search-wrapper">
+ <div class="input-search">
+ <input type="text" class="txtsearch2"  [(ngModel)]="keyword" name="keyword" placeholder="Nhập từ khóa tìm kiếm">
+ <span class="icon icon-search btn_search2" (click)="search()"></span>
+ </div>
+ <p class="result">
+ <span>{{title}}</span>
+ </p>
+ </div>
+  <div class="many-pack content-list">
+ 
+   <article class="story" data-id="604138" *ngFor="let item of dataItem;let h=index">
+ 
+ 
+ <figure class="story__thumb">
+ 
+ <a (click)="view2(item.title,item.content,item.day)" title="Trường ĐH Ngoại ngữ (ĐH Đà Nẵng) trao bằng tốt nghiệp đợt 1 năm 2022">
+  <img class="lazyload" src="{{item.image}}" data-src="https://photo-cms-giaoducthoidai.zadn.vn/350x234/Uploaded/2022/tmuing/2022_08_12/img7313-6103.jpg" alt="Đại diện Ban giám hiệu Trường ĐH Ngoại ngữ, ĐH Đà Nẵng trao bằng tốt nghiệp đợt 1 cho sinh viên">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h3 class="story__heading" data-tracking="604138">
+ <a class="cms-link"(click)="view2(item.title,item.content,item.day)" title="Trường ĐH Ngoại ngữ (ĐH Đà Nẵng) trao bằng tốt nghiệp đợt 1 năm 2022">
+ {{item.title}}
+  
+ </a>
+ </h3> 
+ 
+ 
+ <time class="story__time" datetime="2022-08-12T19:31:02+0700" data-time="1660307462">
+  <span class="icon icon-clock"></span>
+ {{item.time}}
+ </time>
+ 
+ </article>
+  
+  
+ 
+ </div>
+ 
+ </div>
+ <div class="sub-col sidebar-right">
+ 
+ </div>
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <app-footer></app-footer>
+ 
+ </div>
+
+ </body>
+ </html>

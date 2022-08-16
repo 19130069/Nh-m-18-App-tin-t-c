@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  public keyword:any;
+  
+  constructor(private router: Router) {
+    this.keyword='';
+    
+   }
+   //set active menu
+setActive(title:string){
+  this.router.navigate(['/bodybymenu/' + title])
+ 
+}
+navigationExtras?: NavigationExtras;
+view2(): void {
+  this.router.navigate(['/']).then(() => {
+    const index: any[] = [this.keyword];
+    this.navigationExtras = { state: index };
+    this.router.navigateByUrl('/search', this.navigationExtras);
+  });
+}
 
   ngOnInit(): void {
+  
   }
 
 }
