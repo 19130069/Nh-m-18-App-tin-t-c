@@ -1,9 +1,10 @@
+
 import { formatDate } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { BodyTrangChuComponent } from '../body-trang-chu/body-trang-chu.component';
-
+import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-body-chi-tiet',
   templateUrl: './body-chi-tiet.component.html',
@@ -33,20 +34,11 @@ export class BodyChiTietComponent implements OnInit {
     this.htmlStr='';
     const navigation = this.route.getCurrentNavigation();
     this.data = navigation?.extras.state as any[];
-    
-    this.dataGiaoDuc=[];
-    
-    this.dataBonPhuong=[];
-    
-    this.dataTinhHoa=[];
-   
-    this.getDatas(this.urlsGiaoDuc,this.dataGiaoDuc);
-    
+    this.dataGiaoDuc=[];    this.dataBonPhuong=[];    
+    this.dataTinhHoa=[]; 
+    this.getDatas(this.urlsGiaoDuc,this.dataGiaoDuc);  
     this.getDatas(this.urlsBonPhuong,this.dataBonPhuong);
-    
     this.getDatas(this.urlsTinhHoa,this.dataTinhHoa);
-   
-
     if (typeof this.data !== 'undefined') {
         this.htmlStr =this.data[1];
         this.title =this.data[0];
@@ -54,9 +46,9 @@ export class BodyChiTietComponent implements OnInit {
         this.author=this.data[3];
     }
   }
+  constructor() { }
 
   ngOnInit(): void {
-
   }
   getTime(date: string) {
     //thời gian hiện tại
@@ -103,5 +95,4 @@ export class BodyChiTietComponent implements OnInit {
       this.route.navigateByUrl('/bodychitiet', this.navigationExtras);
     });
   }
-  
 }
