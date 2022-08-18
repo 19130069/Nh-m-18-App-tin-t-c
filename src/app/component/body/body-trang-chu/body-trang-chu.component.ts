@@ -110,7 +110,7 @@ export class BodyTrangChuComponent implements OnInit {
   }
   navigationExtras?: NavigationExtras;
   //De chuyen noi dung tu trang bai sang trang chi tiet
-  public view2(title: string,content:string,day:string): void {
+   view2(title: string,content:string,day:string): void {
     this.router.navigate(['/']).then(() => {
       const index: any[] = [title,content,day];
       this.navigationExtras = { state: index };

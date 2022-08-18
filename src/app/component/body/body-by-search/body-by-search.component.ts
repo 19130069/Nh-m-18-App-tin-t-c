@@ -70,5 +70,6 @@ export class BodyBySearchComponent implements OnInit {
       }
       console.log(this.dataItem);
     }
+    
    
 }
