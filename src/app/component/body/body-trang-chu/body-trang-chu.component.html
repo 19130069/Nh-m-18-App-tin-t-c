@@ -1,0 +1,906 @@
+
+
+ <!DOCTYPE html>
+ <html lang="vi">
+ <head>
+ 
+ 
+
+ <title>Báo Giáo dục và Thời đại Online</title>
+ <link rel="stylesheet" href="body-trang-chu.component.css">
+ <link rel="stylesheet" href="https://static.giaoducthoidai.vn/v1/web/styles/css/main.min-1.1.1.css">
+ </head>
+ <body >
+ <div class="wrapper-page  section-homepage "> 
+ 
+ <div class="site-body"> 
+ <div class="container">
+ 
+  <div class="hot-events">
+ <a class="title" href="https://giaoducthoidai.vn/dong-su-kien.html" title="Sự kiện">Sự kiện</a>
+ </div>
+ 
+ 
+ 
+ <div class="abf-homepage">
+ <div class="top-news">
+ <div class="rank-1" data-source="home-highlight">
+ <article class="story" *ngFor="let item of dataGiaoDuc;let h=index">
+ 
+ 
+ <figure class="story__thumb" *ngIf="h<1">
+ 
+ <a href="{{item.link}}" title="{{item.title}}">
+  <img src="{{item.image}}" alt="{{item.title}}">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h2 class="story__heading" data-tracking="603531" *ngIf="h<1">
+ <a class="cms-link" href="{{item.link}}" title="{{item.title}}">
+   {{item.title}}
+  <i class="icon icon-img"></i>
+ </a>
+ </h2> 
+ 
+ 
+ <time class="story__time" datetime="2022-08-07T19:29:38+0700" data-time="1659875378" *ngIf="h<1">
+ 
+   {{item.time}}
+ </time>
+ 
+ 
+  <div class="story__summary" *ngIf="h<1">
+ <p>{{item.description}}</p>
+ </div>
+ </article>
+ </div>
+ 
+ </div>
+  <div class="blog-list">
+ <div class="box-content" data-source="home-highlight">
+ 
+ <article class="story" *ngFor="let item of dataThoiSu; let h=index">
+ 
+ 
+ <figure class="story__thumb" *ngIf="h<6">
+ 
+ <a href="{{item.link}}" title="{{item.title}}">
+  <img src="{{item.image}}" alt="{{item.title}}">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h2 class="story__heading" data-tracking="603526" *ngIf="h<6">
+ <a class="cms-link" href="{{item.link}}" title="{{item.title}}">
+   {{item.title}}
+  
+ </a>
+ </h2> 
+ </article>
+  </div>
+ </div>
+ </div>
+ 
+ <div class="col-wrapper zone">
+ <div class="main-col">
+ 
+ 
+ 
+ <div class="onemain-list">
+ 
+ 
+ <div class="box-heading">
+  <h2 class="wrap-heading">
+ <a class="heading" href="" title="Thời sự">
+  Thời sự
+ </a>
+ </h2>
+ </div> 
+ 
+ <div class="box-content">
+ <div class="rank-1" data-source="home-hot">
+ <article class="story" *ngFor="let item of dataThoiSu; let h=index">
+ 
+ 
+ <figure class="story__thumb" *ngIf="h<1">
+ 
+ <a href="{{item.link}}" title="{{item.title}}">
+  <img class="lazyload" src="{{item.image}}" alt="Ảnh minh họa.">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h2 class="story__heading" data-tracking="603539" *ngIf="h<1">
+ <a class="cms-link" href="{{item.link}}" title="{{item.title}}">
+   {{item.title}}
+  
+ </a>
+ </h2> 
+ 
+ 
+ <time class="story__time" datetime="2022-08-07T19:25:18+0700" data-time="1659875118" *ngIf="h<1">
+ 
+   {{item.time}}
+ </time>
+ 
+ 
+  <div class="story__summary" *ngIf="h<1">
+   {{item.description}}
+ </div>
+ </article>
+ </div>
+
+  <div class="rank-2" data-source="home-hot">
+  <div *ngFor="let item of dataThoiSu; let h=index">
+ <article class="story" *ngIf="h>5">
+ 
+ 
+ <figure class="story__thumb">
+ 
+ <a href="{{item.link}}" title="{{item.title}}">
+  <img class="lazyload" src="{{item.image}}" alt="{{item.title}}">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h2 class="story__heading" data-tracking="603529">
+ <a class="cms-link" href="{{item.link}}" title="{{item.title}}">
+   {{item.title}}
+  <i class="icon icon-img"></i>
+ </a>
+ </h2> 
+ 
+ 
+ <time class="story__time" datetime="2022-08-07T19:44:45+0700" data-time="1659876285">
+ 
+   {{item.time}}
+ </time>
+ </article>
+</div>
+  </div>
+ </div>
+ </div>
+ </div>
+ <div class="sub-col">
+ 
+  <div class="headline-list">
+ <div class="box-heading">
+ <h3 class="wrap-heading">
+ <p class="heading" title="Tin mới"><span class="icon icon-star"></span>Mới cập nhật</p>
+ </h3>
+ </div>
+ <div class="box-content" data-source="latest-news">
+   <div *ngFor="let item of dataTrangChu;let h=index">
+  <article class="story"*ngIf="h<5">
+ 
+ 
+  <h2 class="story__heading" data-tracking="603549">
+ <a class="cms-link" href="{{item.link}}" title="{{item.title}}">
+   {{item.title}}
+  
+ </a>
+ </h2> 
+ </article>
+</div>
+  </div>
+ </div>
+ </div>
+ </div>
+ 
+  
+  <div class="onemain-foursub">
+ 
+ 
+ <div class="box-heading">
+ <h3 class="wrap-heading">
+ <a class="heading" href="https://giaoducthoidai.vn/giao-duc/" title="Giáo dục ">
+ Giáo dục 
+ </a>
+ </h3>
+ </div>
+ 
+ <div class="box-content">
+ <div class="item-primary" data-source="zone-box-home-17">
+ <article class="story" *ngFor="let item of dataGiaoDuc;let h=index">
+ 
+ 
+ <figure class="story__thumb"*ngIf="h<1">
+ 
+ <a href="{{item.link}}" title="{{item.title}}">
+  <img class="lazyload" src="{{item.image}}" alt="{{item.title}}">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h3 class="story__heading" data-tracking="602711"*ngIf="h<1">
+ <a class="cms-link" href="{{item.link}}" title="{{item.title}}">
+   {{item.title}}
+  
+ </a>
+ </h3> 
+ 
+ 
+ <time class="story__time" datetime="2022-08-07T16:30:22+0700" data-time="1659864622"*ngIf="h<1">
+ 
+   {{item.time}}
+ </time>
+ 
+ 
+  <div class="story__summary story__shorten"*ngIf="h<1">
+   {{item.description}}
+ </div>
+ </article>
+ </div>
+
+
+  <div class="item-secondary" data-source="zone-box-home-17">
+ 
+ <article class="story" *ngFor="let item of dataGiaoDuc;let h=index">
+ 
+ 
+ <figure class="story__thumb" *ngIf="(h>1)&&(h<6)">
+ 
+ <a href="{{item.link}}" title="{{item.title}}">
+  <img class="lazyload" src="{{item.image}}" alt="{{item.title}}">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h3 class="story__heading" data-tracking="603428"*ngIf="(h>1)&&(h<6)">
+ <a class="cms-link" href="{{item.link}}">
+   {{item.title}}
+  
+ </a>
+ </h3> 
+ </article>
+  </div>
+ </div>
+ </div>
+ 
+ 
+ 
+ <!-- <div class="col-wrapper zone">
+ <div class="main-col">
+ 
+  
+  <div class="onemain-list">
+ 
+ 
+ <div class="box-heading">
+  <h2 class="wrap-heading"><a class="heading" href="https://giaoducthoidai.vn/thoi-su/" title="Thời sự">Thời sự</a></h2>
+ </div> 
+ 
+ <div class="box-content">
+ <div class="rank-1" data-source="zone-box-home-1">
+ <article class="story">
+ 
+ 
+ <figure class="story__thumb">
+ 
+ <a href="https://giaoducthoidai.vn/tu-nay-den-2030-tiep-tuc-tim-kiem-quy-tap-khoang-15-000-hai-cot-liet-si-post603546.html" title="Từ nay đến 2030 tiếp tục tìm kiếm, quy tập khoảng 15.000 hài cốt liệt sĩ">
+  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/550x367/Uploaded/2022/pqmvxpiu/2022_08_07/hai-cot-liet-si-7648.jpg" alt="Ảnh minh họa.">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h3 class="story__heading" data-tracking="603546">
+ <a class="cms-link" href="https://giaoducthoidai.vn/tu-nay-den-2030-tiep-tuc-tim-kiem-quy-tap-khoang-15-000-hai-cot-liet-si-post603546.html" title="Từ nay đến 2030 tiếp tục tìm kiếm, quy tập khoảng 15.000 hài cốt liệt sĩ">
+ Từ nay đến 2030 tiếp tục tìm kiếm, quy tập khoảng 15.000 hài cốt liệt sĩ
+  
+ </a>
+ </h3> 
+ 
+ 
+ <time class="story__time" datetime="2022-08-07T22:19:43+0700" data-time="1659885583">
+ 
+ 07/08/2022 22:19
+ </time>
+ 
+ 
+  <div class="story__summary story__shorten">
+ GD&amp;TĐ - Thủ tướng Phạm Minh Chính yêu cầu từ nay đến năm 2030, thực hiện tìm kiếm, quy tập được khoảng 15.000 hài cốt liệt sĩ; hoàn thành việc tìm kiếm, quy tập và kết luận khu vực, địa bàn có thông tin mộ liệt sĩ tập thể; từ năm 2031 trở đi, tiếp tục tìm kiếm, quy tập hài cốt liệt sĩ đến khi không còn thông tin về hài cốt liệt sĩ, mộ liệt sĩ.
+ </div>
+ </article>
+ </div>
+  <div class="rank-2" data-source="zone-box-home-1">
+ 
+ <article class="story">
+ 
+ 
+ <figure class="story__thumb">
+ 
+ <a href="https://giaoducthoidai.vn/da-nang-chay-lon-o-cua-hang-ban-do-me-va-be-post603549.html" title="Đà Nẵng: Cháy lớn ở cửa hàng bán đồ mẹ và bé">
+  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/70x40/Uploaded/2022/botnhn/2022_08_07/544795c599765b2802676-3323.jpg" alt="Khói đen bốc ra từ cửa hàng. ">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h3 class="story__heading" data-tracking="603549">
+ <a class="cms-link" href="https://giaoducthoidai.vn/da-nang-chay-lon-o-cua-hang-ban-do-me-va-be-post603549.html" title="Đà Nẵng: Cháy lớn ở cửa hàng bán đồ mẹ và bé">
+ Đà Nẵng: Cháy lớn ở cửa hàng bán đồ mẹ và bé
+  
+ </a>
+ </h3> 
+ 
+ 
+ <time class="story__time" datetime="2022-08-07T22:20:23+0700" data-time="1659885623">
+ 
+ 07/08/2022 22:20
+ </time>
+ </article>
+ 
+ <article class="story">
+ 
+ 
+ <figure class="story__thumb">
+ 
+ <a href="https://giaoducthoidai.vn/kiem-tra-xac-minh-tiec-chia-tay-nghi-huu-cua-nguyen-giam-doc-cdc-quang-ninh-post603541.html" title="Kiểm tra, xác minh tiệc chia tay nghỉ hưu của nguyên Giám đốc CDC Quảng Ninh">
+  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/70x40/Uploaded/2022/pqmvxpiu/2022_08_07/fbimg1659401018272-1659460343995-255.jpg" alt="Ảnh: Facebook Ninh Chu.">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h3 class="story__heading" data-tracking="603541">
+ <a class="cms-link" href="https://giaoducthoidai.vn/kiem-tra-xac-minh-tiec-chia-tay-nghi-huu-cua-nguyen-giam-doc-cdc-quang-ninh-post603541.html" title="Kiểm tra, xác minh tiệc chia tay nghỉ hưu của nguyên Giám đốc CDC Quảng Ninh">
+ Kiểm tra, xác minh tiệc chia tay nghỉ hưu của nguyên Giám đốc CDC Quảng Ninh
+  
+ </a>
+ </h3> 
+ 
+ 
+ <time class="story__time" datetime="2022-08-07T19:37:19+0700" data-time="1659875839">
+ 
+ 07/08/2022 19:37
+ </time>
+ </article>
+ 
+ <article class="story">
+ 
+ 
+ <figure class="story__thumb">
+ 
+ <a href="https://giaoducthoidai.vn/tu-1-9-gui-hang-tren-xe-khach-phai-cung-cap-6-thong-tin-post603540.html" title="Từ 1/9, gửi hàng trên xe khách phải cung cấp 6 thông tin">
+  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/70x40/Uploaded/2022/pqmvxpiu/2022_08_07/20201207105131-img-9718-1607436294-width1200height630-1607436479-width1200height630-5230.jpg" alt="Ảnh minh họa.">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h3 class="story__heading" data-tracking="603540">
+ <a class="cms-link" href="https://giaoducthoidai.vn/tu-1-9-gui-hang-tren-xe-khach-phai-cung-cap-6-thong-tin-post603540.html" title="Từ 1/9, gửi hàng trên xe khách phải cung cấp 6 thông tin">
+ Từ 1/9, gửi hàng trên xe khách phải cung cấp 6 thông tin
+  
+ </a>
+ </h3> 
+ 
+ 
+ <time class="story__time" datetime="2022-08-07T19:26:11+0700" data-time="1659875171">
+ 
+ 07/08/2022 19:26
+ </time>
+ </article>
+ 
+ <article class="story">
+ 
+ 
+ <figure class="story__thumb">
+ 
+ <a href="https://giaoducthoidai.vn/quang-binh-xu-phat-gan-1-000-truong-hop-vi-pham-giao-thong-dot-cao-diem-post603523.html" title="Quảng Bình: Xử phạt gần 1.000 trường hợp vi phạm giao thông đợt cao điểm">
+  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/70x40/Uploaded/2022/ahpkhun/2022_06_27/anh-csgt-1-2385.jpg" alt="Lực lượng CSGT Quảng Bình xử lý các phương tiện vi phạm giao thông.">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h3 class="story__heading" data-tracking="603523">
+ <a class="cms-link" href="https://giaoducthoidai.vn/quang-binh-xu-phat-gan-1-000-truong-hop-vi-pham-giao-thong-dot-cao-diem-post603523.html" title="Quảng Bình: Xử phạt gần 1.000 trường hợp vi phạm giao thông đợt cao điểm">
+ Quảng Bình: Xử phạt gần 1.000 trường hợp vi phạm giao thông đợt cao điểm
+  
+ </a>
+ </h3> 
+ 
+ 
+ <time class="story__time" datetime="2022-08-07T16:40:50+0700" data-time="1659865250">
+ 
+ 07/08/2022 16:40
+ </time>
+ </article>
+ 
+ <article class="story">
+ 
+ 
+ <figure class="story__thumb">
+ 
+ <a href="https://giaoducthoidai.vn/hoan-thanh-doan-tren-cao-duong-sat-nhon-ga-ha-noi-cham-nhat-vao-cuoi-nam-2022-post603527.html" title="Hoàn thành đoạn trên cao đường sắt Nhổn-Ga Hà Nội chậm nhất vào cuối năm 2022 ">
+  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://photo-cms-giaoducthoidai.zadn.vn/70x40/Uploaded/2022/znaebz/2022_08_07/img8444-16598524200821648735625-2811.jpg" alt="Sau khi khảo sát, kiểm tra thi công các hạng mục công trình dự án đường sắt Nhổn-Ga Hà Nội, Thủ tướng Phạm Minh Chính đã có cuộc làm việc với lãnh đạo các bộ, ngành, đơn vị nhà thầu thi công và Thành phố Hà Nội để tháo gỡ các khó khăn, vướng mắc, thúc đẩy tiến độ xây dựng dự án này. Ảnh: VGP/Nhật Bắc.">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h3 class="story__heading" data-tracking="603527">
+ <a class="cms-link" href="https://giaoducthoidai.vn/hoan-thanh-doan-tren-cao-duong-sat-nhon-ga-ha-noi-cham-nhat-vao-cuoi-nam-2022-post603527.html" title="Hoàn thành đoạn trên cao đường sắt Nhổn-Ga Hà Nội chậm nhất vào cuối năm 2022 ">
+ Hoàn thành đoạn trên cao đường sắt Nhổn-Ga Hà Nội chậm nhất vào cuối năm 2022 
+  <i class="icon icon-img"></i>
+ </a>
+ </h3> 
+ 
+ 
+ <time class="story__time" datetime="2022-08-07T15:36:28+0700" data-time="1659861388">
+ 
+ 07/08/2022 15:36
+ </time>
+ </article>
+  </div>
+ </div>
+ </div>
+ </div>
+ <div class="sub-col">
+ 
+  <div class="headline-list">
+ 
+ 
+ <div class="box-heading">
+  <h2 class="wrap-heading">
+ <a class="heading" href="https://giaoducthoidai.vn/chu-de/tieu-diem-tuan-135.html" title="Tiêu điểm tuần">
+ <span class="icon icon-star"></span> Tiêu điểm tuần
+ </a>
+ </h2>
+ </div> 
+ 
+ <div class="box-content" data-source="topic-box-135">
+  <article class="story">
+ 
+ 
+  <h3 class="story__heading" data-tracking="603241">
+ <a class="cms-link" href="https://giaoducthoidai.vn/bo-truong-nguyen-kim-son-can-hieu-dung-ban-chat-cua-tu-chu-dai-hoc-post603241.html" title="Bộ trưởng Nguyễn Kim Sơn: Cần hiểu đúng bản chất của tự chủ đại học">
+ Bộ trưởng Nguyễn Kim Sơn: Cần hiểu đúng bản chất của tự chủ đại học
+  
+ </a>
+ </h3> 
+ </article>
+  <article class="story">
+ 
+ 
+  <h3 class="story__heading" data-tracking="603535">
+ <a class="cms-link" href="https://giaoducthoidai.vn/duong-len-dinh-olympia-nu-sinh-ninh-thuan-gay-an-tuong-manh-post603535.html" title="Đường lên đỉnh Olympia: Nữ sinh Ninh Thuận gây ấn tượng mạnh ">
+ Đường lên đỉnh Olympia: Nữ sinh Ninh Thuận gây ấn tượng mạnh 
+  <i class="icon icon-video"></i>
+ </a>
+ </h3> 
+ </article>
+  <article class="story">
+ 
+ 
+  <h3 class="story__heading" data-tracking="603320">
+ <a class="cms-link" href="https://giaoducthoidai.vn/bo-gd-dt-ban-hanh-khung-ke-hoach-thoi-gian-nam-hoc-2022-2023-post603320.html" title="Bộ GD&amp;ĐT ban hành khung kế hoạch thời gian năm học 2022-2023">
+ Bộ GD&amp;ĐT ban hành khung kế hoạch thời gian năm học 2022-2023
+  
+ </a>
+ </h3> 
+ </article>
+  <article class="story">
+ 
+ 
+  <h3 class="story__heading" data-tracking="603465">
+ <a class="cms-link" href="https://giaoducthoidai.vn/bo-ngoai-giao-nga-canh-bao-quan-doi-ukraine-co-the-lap-lai-tham-hoa-chernobyl-post603465.html" title="Bộ Ngoại giao Nga cảnh báo quân đội Ukraine có thể lặp lại thảm họa Chernobyl">
+ Bộ Ngoại giao Nga cảnh báo quân đội Ukraine có thể lặp lại thảm họa Chernobyl
+  
+ </a>
+ </h3> 
+ </article>
+  <article class="story">
+ 
+ 
+  <h3 class="story__heading" data-tracking="603471">
+ <a class="cms-link" href="https://giaoducthoidai.vn/bi-phan-ung-vec-ra-thong-bao-moi-ve-so-du-tai-khoan-thu-phi-khong-dung-post603471.html" title="Bị phản ứng, VEC ra thông báo mới về số dư tài khoản thu phí không dừng">
+ Bị phản ứng, VEC ra thông báo mới về số dư tài khoản thu phí không dừng
+  
+ </a>
+ </h3> 
+ </article>
+  </div>
+ </div>
+ <style type="text/css">#HAPO_preview a{font-weight: bold}#HAPO_preview a:hover{color:#ae0001 !important;}#HAPO_preview{ max-height: 105px;overflow-y:auto;clear: both; text-align: left; margin-top: 2px; margin-bottom: 2px; font-size:12px !important; padding-bottom:2px; border:1px solid #CECECE; color:#666; width:100%; }#HAPO_preview .HAPO_preview_title{ border-bottom:1px solid #CECECE; font-size:13px; padding-bottom:4px; font-weight:bold; padding:6px 10px; background-color: #136ca8; background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ddd)); background: -webkit-linear-gradient(top, #fff, #ddd); background: -moz-linear-gradient(top, #fff, #ddd); background: -ms-linear-gradient(top,#fff, #ddd); background: -o-linear-gradient(top, #fff, #ddd);}#HAPO_preview.HAPO_vertical ul{ line-height:22px; list-style:circle !important; margin:10px !important; }#HAPO_preview.HAPO_vertical ul li{ list-style:circle inside !important; display:list-item !important; background: none !important;border-bottom: 1px dashed #CECECE; padding-bottom: 5px; margin-bottom: 5px;}#HAPO_preview.HAPO_vertical ul li a{ color:#222; text-decoration:none; }</style><div id="HAPO_preview" class="HAPO_vertical"><div class="HAPO_preview_title">Liên kết hữu ích</div><ul><li >Website <a href="https://danhgiatot.vn/" target="_blank" title="Đánh Giá Tốt">Đánh Giá Tốt</a> so sánh giá</li></ul></div>
+ </div>
+ </div> -->
+ 
+  <div class="onemain-foursub">
+ <div class="box-heading">
+ <h3 class="wrap-heading">
+ <a class="heading" href="" title="Trồng người">
+Trồng người
+ </a>
+ </h3>
+
+ </div>
+ 
+ <div class="box-content">
+ <div class="item-primary" data-source="zone-box-home-8">
+ <article class="story" *ngFor="let item of dataTrongNguoi;let h =index">
+ 
+ 
+ <figure class="story__thumb"*ngIf="h<1">
+ 
+ <a href="{{item.link}}" title="{{item.title}}">
+  <img class="lazyload" src="{{item.image}}" alt="{{item.title}} ">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h3 class="story__heading" data-tracking="603532" *ngIf="h<1">
+ <a class="cms-link" href="{{item.link}}" title="{{item.title}}">
+   {{item.title}}
+  
+ </a>
+ </h3> 
+ 
+ 
+ <time class="story__time" datetime="2022-08-07T17:02:38+0700" data-time="1659866558"*ngIf="h<1">
+ 
+   {{item.time}}
+ </time>
+ 
+ 
+  <div class="story__summary story__shorten"*ngIf="h<1">
+   {{item.description}}
+ </div>
+ </article>
+ </div>
+  <div class="item-secondary" data-source="zone-box-home-8">
+ 
+ <article class="story" *ngFor="let item of dataTrongNguoi;let h =index">
+ 
+ 
+ <figure class="story__thumb" *ngIf="(h>1)&&(h<6)">
+ 
+ <a href="{{item.link}}" title="{{item.title}}">
+  <img class="lazyload" src="{{item.image}}" alt="{{item.title}}">
+ 
+ 
+ </a>
+ </figure>
+ 
+ 
+  <h3 class="story__heading" data-tracking="603517"*ngIf="(h>1)&&(h<6)">
+ <a class="cms-link" href="{{item.link}}" title="{{item.title}}">
+   {{item.title}}
+  
+ </a>
+ </h3> 
+ </article>
+  </div>
+ </div>
+ </div>
+ 
+ 
+ 
+   
+  <div class="onemain-foursub">
+ <div class="box-heading">
+ <h3 class="wrap-heading">
+ <a class="heading" href="" title="Bốn phương">
+ Bốn phương
+ </a>
+ </h3>
+  
+ </div>
+ 
+ <div class="box-content">
+ <div class="item-primary" data-source="zone-box-home-2">
+   <article class="story" *ngFor="let item of dataBonPhuong;let h =index">
+ 
+ 
+      <figure class="story__thumb"*ngIf="h<1">
+      
+      <a href="{{item.link}}" title="{{item.title}}">
+       <img class="lazyload" src="{{item.image}}" alt="{{item.title}} ">
+      
+      
+      </a>
+      </figure>
+      
+      
+       <h3 class="story__heading" data-tracking="603532" *ngIf="h<1">
+      <a class="cms-link" href="{{item.link}}" title="{{item.title}}">
+        {{item.title}}
+       
+      </a>
+      </h3> 
+      
+      
+      <time class="story__time" datetime="2022-08-07T17:02:38+0700" data-time="1659866558"*ngIf="h<1">
+      
+        {{item.time}}
+      </time>
+      
+      
+       <div class="story__summary story__shorten"*ngIf="h<1">
+        {{item.description}}
+      </div>
+      </article>
+ </div>
+  <div class="item-secondary" data-source="zone-box-home-2">
+   <article class="story" *ngFor="let item of dataBonPhuong;let h =index">
+ 
+ 
+      <figure class="story__thumb" *ngIf="(h>1)&&(h<6)">
+      
+      <a href="{{item.link}}" title="{{item.title}}">
+       <img class="lazyload" src="{{item.image}}" alt="{{item.title}}">
+      
+      
+      </a>
+      </figure>
+      
+      
+       <h3 class="story__heading" data-tracking="603517"*ngIf="(h>1)&&(h<6)">
+      <a class="cms-link" href="{{item.link}}" title="{{item.title}}">
+        {{item.title}}
+       
+      </a>
+      </h3> 
+      </article>
+  </div>
+ </div>
+ </div> 
+  <div class="onemain-foursub">
+ 
+ 
+ <div class="box-heading">
+ <h3 class="wrap-heading">
+ <a class="heading" href="" title="Văn hóa">
+Văn hóa
+ </a>
+ </h3>
+ 
+ </div>
+ 
+ <div class="box-content">
+ <div class="item-primary" data-source="zone-box-home-5">
+   <article class="story" *ngFor="let item of dataVanHoa;let h =index">
+ 
+ 
+      <figure class="story__thumb"*ngIf="h<1">
+      
+      <a href="{{item.link}}" title="{{item.title}}">
+       <img class="lazyload" src="{{item.image}}" alt="{{item.title}} ">
+      
+      
+      </a>
+      </figure>
+      
+      
+       <h3 class="story__heading" data-tracking="603532" *ngIf="h<1">
+      <a class="cms-link" href="{{item.link}}" title="{{item.title}}">
+        {{item.title}}
+       
+      </a>
+      </h3> 
+      
+      
+      <time class="story__time" datetime="2022-08-07T17:02:38+0700" data-time="1659866558"*ngIf="h<1">
+      
+        {{item.time}}
+      </time>
+      
+      
+       <div class="story__summary story__shorten"*ngIf="h<1">
+        {{item.description}}
+      </div>
+      </article>
+ </div>
+  <div class="item-secondary" data-source="zone-box-home-5">
+ 
+   <article class="story" *ngFor="let item of dataVanHoa;let h =index">
+ 
+ 
+      <figure class="story__thumb" *ngIf="(h>1)&&(h<6)">
+      
+      <a href="{{item.link}}" title="{{item.title}}">
+       <img class="lazyload" src="{{item.image}}" alt="{{item.title}}">
+      
+      
+      </a>
+      </figure>
+      
+      
+       <h3 class="story__heading" data-tracking="603517"*ngIf="(h>1)&&(h<6)">
+      <a class="cms-link" href="{{item.link}}" title="{{item.title}}">
+        {{item.title}}
+       
+      </a>
+      </h3> 
+      </article>
+  </div>
+ </div>
+ </div>
+ 
+ <div class="onemain-foursub">
+ 
+ 
+   <div class="box-heading">
+   <h3 class="wrap-heading">
+   <a class="heading" href="" title="Tinh hoa">
+  Tinh hoa
+   </a>
+   </h3>
+   
+   </div>
+   
+   <div class="box-content">
+   <div class="item-primary" data-source="zone-box-home-5">
+     <article class="story" *ngFor="let item of dataTinhHoa;let h =index">
+   
+   
+        <figure class="story__thumb"*ngIf="h<1">
+        
+        <a href="{{item.link}}" title="{{item.title}}">
+         <img class="lazyload" src="{{item.image}}" alt="{{item.title}} ">
+        
+        
+        </a>
+        </figure>
+        
+        
+         <h3 class="story__heading" data-tracking="603532" *ngIf="h<1">
+        <a class="cms-link" href="{{item.link}}" title="{{item.title}}">
+          {{item.title}}
+         
+        </a>
+        </h3> 
+        
+        
+        <time class="story__time" datetime="2022-08-07T17:02:38+0700" data-time="1659866558"*ngIf="h<1">
+        
+          {{item.time}}
+        </time>
+        
+        
+         <div class="story__summary story__shorten"*ngIf="h<1">
+          {{item.description}}
+        </div>
+        </article>
+   </div>
+    <div class="item-secondary" data-source="zone-box-home-5">
+   
+     <article class="story" *ngFor="let item of dataTinhHoa;let h =index">
+   
+   
+        <figure class="story__thumb" *ngIf="(h>1)&&(h<6)">
+        
+        <a href="{{item.link}}" title="{{item.title}}">
+         <img class="lazyload" src="{{item.image}}" alt="{{item.title}}">
+        
+        
+        </a>
+        </figure>
+        
+        
+         <h3 class="story__heading" data-tracking="603517"*ngIf="(h>1)&&(h<6)">
+        <a class="cms-link" href="{{item.link}}" title="{{item.title}}">
+          {{item.title}}
+         
+        </a>
+        </h3> 
+        </article>
+    </div>
+   </div>
+   </div>
+   <div class="onemain-foursub">
+ 
+ 
+      <div class="box-heading">
+      <h3 class="wrap-heading">
+      <a class="heading" href="" title="Giáo dục liêm chính">
+     Giáo dục liêm chính
+      </a>
+      </h3>
+      
+      </div>
+      
+      <div class="box-content">
+      <div class="item-primary" data-source="zone-box-home-5">
+        <article class="story" *ngFor="let item of dataGDLC;let h =index">
+      
+      
+           <figure class="story__thumb"*ngIf="h<1">
+           
+           <a href="{{item.link}}" title="{{item.title}}">
+            <img class="lazyload" src="{{item.image}}" alt="{{item.title}} ">
+           
+           
+           </a>
+           </figure>
+           
+           
+            <h3 class="story__heading" data-tracking="603532" *ngIf="h<1">
+           <a class="cms-link" href="{{item.link}}" title="{{item.title}}">
+             {{item.title}}
+            
+           </a>
+           </h3> 
+           
+           
+           <time class="story__time" datetime="2022-08-07T17:02:38+0700" data-time="1659866558"*ngIf="h<1">
+           
+             {{item.time}}
+           </time>
+           
+           
+            <div class="story__summary story__shorten"*ngIf="h<1">
+             {{item.description}}
+           </div>
+           </article>
+      </div>
+       <div class="item-secondary" data-source="zone-box-home-5">
+      
+        <article class="story" *ngFor="let item of dataGDLC;let h =index">
+      
+      
+           <figure class="story__thumb" *ngIf="(h>1)&&(h<6)">
+           
+           <a href="{{item.link}}" title="{{item.title}}">
+            <img class="lazyload" src="{{item.image}}" alt="{{item.title}}">
+           
+           
+           </a>
+           </figure>
+           
+           
+            <h3 class="story__heading" data-tracking="603517"*ngIf="(h>1)&&(h<6)">
+           <a class="cms-link" href="{{item.link}}" title="{{item.title}}">
+             {{item.title}}
+            
+           </a>
+           </h3> 
+           </article>
+       </div>
+      </div>
+      </div>
+ 
+  <div class="cate-list">
+ 
+ <a href="https://giaoducthoidai.vn/giao-duc/" title="Giáo dục ">Giáo dục </a>
+ 
+ <a href="https://giaoducthoidai.vn/thoi-su/" title="Thời sự">Thời sự</a>
+ 
+ <a href="https://giaoducthoidai.vn/phap-luat/" title="Trồng người">Trồng người</a>
+ 
+ <a href="https://giaoducthoidai.vn/ket-noi/" title="Bốn phương">Bốn phương</a>
+ <a href="https://giaoducthoidai.vn/video/" title="Văn hóa">Văn hóa</a>
+ <a href="https://giaoducthoidai.vn/video/" title="Tinh hoa">Tinh hoa</a>
+
+
+  </div>
+ 
+ </div>
+ </div>
+ </div>
+ </body>
+ </html>
+ 
